@@ -81,11 +81,22 @@ struct PlaceholderView: View {
     }
 }
 
-struct CommitCheckerWidgetView: View {
+struct SmallRectStatus: View {
     let entry: LastCommitEntry
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
+            
+            VStack(content: {
+                Image("logoT2")
+                    .resizable()
+                    .frame(width: 53, height: 20)
+            })
+            .frame(width: 70, height: 20, alignment: .bottom)
+            
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
+                Text("Placeholder")
+            })
             Text("Lastest Commit")
                 .font(.system(.title3))
                 .foregroundColor(.black)
@@ -99,9 +110,7 @@ struct CommitCheckerWidgetView: View {
             Text("Updated at \(Self.format(date:entry.date))")
                 .font(.system(.caption2))
                 .foregroundColor(.black)
-        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-        .padding()
-        .background(LinearGradient(gradient: Gradient(colors: [.orange, .yellow]), startPoint: .top, endPoint: .bottom))
+        }
     }
     
     static func format(date: Date) -> String {
@@ -111,12 +120,27 @@ struct CommitCheckerWidgetView: View {
     }
 }
 
+struct CommitCheckerWidgetView: View {
+    let entry: LastCommitEntry
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            SmallRectStatus(entry: entry)
+        }
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .leading)
+        .padding()
+        .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
+    }
+    
+    
+}
+
 @main
 struct CommitCheckerWidgetWidget: Widget {
-
+    
     private let kind: String = "CommitCheckerWidget"
     
-     var body: some WidgetConfiguration {
+    var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: CommitTimeline()) { entry in
             CommitCheckerWidgetView(entry: entry)
         }
