@@ -75,17 +75,47 @@ struct LastCommitEntry: TimelineEntry {
     public let commit: Commit
 }
 
-struct PlaceholderView: View {
+struct ProgressBar: View {
+    var counter: Int
+    var countTo: Int
+    
+    var width: Float = 15
+    
     var body: some View {
-        Text("Loading...")
+        Circle()
+            .stroke(style: StrokeStyle(
+                lineWidth: CGFloat(self.width),
+                lineCap: .round,
+                lineJoin: .round
+            ))
+            .foregroundColor(Color.gray)
+            
+//            .frame(width: 250, height: 250)
+            .overlay(
+                Circle().trim(from:0, to: progress())
+                    .stroke(style: StrokeStyle(
+                        lineWidth: CGFloat(self.width),
+                        lineCap: .round,
+                        lineJoin: .round
+                    ))
+                    .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
+                    .animation(.easeInOut(duration: 0.2))
+                    .rotationEffect(Angle(degrees: -90))
+            )
+    }
+    
+    func progress() -> CGFloat {
+        return (CGFloat(counter) / CGFloat(countTo))
     }
 }
 
 struct CommitCheckerWidgetView: View {
     let entry: LastCommitEntry
+    @Environment(\.widgetFamily) var family
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
+            ProgressBar(counter: 40, countTo: 400, width: progressWidth())
             Text("Lastest Commit")
                 .font(.system(.title3))
                 .foregroundColor(.black)
@@ -103,7 +133,17 @@ struct CommitCheckerWidgetView: View {
         .padding()
         .background(LinearGradient(gradient: Gradient(colors: [.orange, .yellow]), startPoint: .top, endPoint: .bottom))
     }
-    
+    func progressWidth() -> Float {
+        switch family{
+        case .systemSmall:
+            return 4
+        case .systemMedium:
+            return 4
+        default:
+            return 12
+        }
+    }
+
     static func format(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy HH:mm"
