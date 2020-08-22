@@ -65,7 +65,7 @@ struct ShopAd: View {
                     .background(Color.yellow)
                     .frame(height:25)
                     
-                    .cornerRadius(15)
+                    .cornerRadius(12)
                 }
                 .padding(.bottom, -7.0)
                 .padding(.bottom)
