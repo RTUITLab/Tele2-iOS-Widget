@@ -29,7 +29,8 @@ struct Large: View {
             HStack(alignment: .center,content: {
                 VStack(alignment: .leading,content: {
                     Text("Номер")
-                        .font(.subheadline)
+                        .font(Font.custom("Tele2 DisplaySerif", size: 22))
+                        .bold()
                         .foregroundColor(.white)
                         .allowsTightening(true)
                     Text(self.entry.limits.phone)

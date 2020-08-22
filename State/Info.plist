@@ -4,6 +4,13 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-UI-Display-Medium.otf</string>
+		<string>SF-UI-Display-Regular.otf</string>
+		<string>SF-UI-Display-Bold.otf</string>
+		<string>Tele2DisplaySerif-Regular-short__W.ttf</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>State</string>
 	<key>CFBundleExecutable</key>
