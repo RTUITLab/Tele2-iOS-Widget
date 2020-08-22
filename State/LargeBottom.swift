@@ -9,9 +9,7 @@ import WidgetKit
 import SwiftUI
 
 struct LargeBottom: View {
-    let entry: LastCommitEntry
     var family : WidgetFamily
-    var progressValue: Float = 0.9
     
     var body: some View {
         
@@ -22,8 +20,10 @@ struct LargeBottom: View {
             VStack( alignment: .center, content: {
                 Text("Подвеска в подарок")
                     .padding(5)
+                    .foregroundColor(Color.black)
                 Text("Получите серебряную подвеску в подарок и скидку 15% в АДАМАС в ТЦ «Авеню» прямо сейчас")
                     .font(.system(size: 10))
+                    .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
                     .padding(5)
                 ZStack(content: {
@@ -72,7 +72,7 @@ struct LargeBottom: View {
 struct LargeBottom_Previews: PreviewProvider {
     static var previews: some View {
         
-        LargeBottom(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "", author: "", date: "")), family: .systemLarge)
+        LargeBottom(family: .systemLarge)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)

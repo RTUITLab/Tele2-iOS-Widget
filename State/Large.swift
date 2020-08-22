@@ -9,9 +9,7 @@ import WidgetKit
 import SwiftUI
 
 struct Large: View {
-    let entry: LastCommitEntry
     var family : WidgetFamily
-    var progressValue: Float = 0.9
     
     var body: some View {
         
@@ -138,8 +136,9 @@ struct Large: View {
 struct Large_Previews: PreviewProvider {
     static var previews: some View {
         
-        Large(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "", author: "", date: "")), family: .systemLarge)
+        Large(family: .systemLarge)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
+            .environment(\.sizeCategory, .extraLarge)
             .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
             .padding()
