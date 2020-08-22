@@ -22,6 +22,7 @@
 		E630CDD124F097CF00A815EF /* ShopAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CDCF24F097CF00A815EF /* ShopAd.swift */; };
 		E656416F24F0AC5300B82FA3 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656416E24F0AC5300B82FA3 /* ProgressBar.swift */; };
 		E656417024F0AC5300B82FA3 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656416E24F0AC5300B82FA3 /* ProgressBar.swift */; };
+		E695982B24F1320700C88FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6AACDD224F02D77005C810D /* Assets.xcassets */; };
 		E6AACDB624F02CA7005C810D /* Tele2_WidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDB524F02CA7005C810D /* Tele2_WidgetApp.swift */; };
 		E6AACDB824F02CA7005C810D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDB724F02CA7005C810D /* ContentView.swift */; };
 		E6AACDBA24F02CAB005C810D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6AACDB924F02CAB005C810D /* Assets.xcassets */; };
@@ -29,7 +30,6 @@
 		E6AACDCB24F02D6C005C810D /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AACDCA24F02D6C005C810D /* WidgetKit.framework */; };
 		E6AACDCD24F02D6C005C810D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AACDCC24F02D6C005C810D /* SwiftUI.framework */; };
 		E6AACDD024F02D6C005C810D /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDCF24F02D6C005C810D /* State.swift */; };
-		E6AACDD324F02D77005C810D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6AACDD224F02D77005C810D /* Assets.xcassets */; };
 		E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDD124F02D6C005C810D /* State.intentdefinition */; };
 		E6AACDD624F02D77005C810D /* State.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDD124F02D6C005C810D /* State.intentdefinition */; };
 		E6AACDD924F02D77005C810D /* StateExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E6AACDC824F02D6C005C810D /* StateExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -276,7 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6AACDD324F02D77005C810D /* Assets.xcassets in Resources */,
+				E695982B24F1320700C88FEF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
