@@ -27,11 +27,11 @@ struct ContentView: View {
                             .multilineTextAlignment(.center)
                             .padding(.bottom, 40.0)
                         
-                       
+                        
                         WidgetSetting()
-                        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .edgesIgnoringSafeArea(.bottom)
-                        .background(Color.white)
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .edgesIgnoringSafeArea(.bottom)
+//                            .background(Color.white)
                         
                         
                     })
@@ -39,7 +39,7 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.bottom)
                     
                     
-                  
+                    
                     
                 })
     }
@@ -48,8 +48,32 @@ struct ContentView: View {
 struct WidgetSetting: View {
     var body: some View {
         VStack(content: {
-            /*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
-                .foregroundColor(.black)
+            VStack(content: {
+                
+                
+                MobileState(family: .systemSmall, entry: exampleLastLimitsEntry)
+                    
+                    .frame(width: 149, height: 149, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
+            })
+            
+            
+            .frame(width: 169, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .overlay(RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.white, lineWidth: 5.0))
+            
+            VStack(content: {
+                
+                
+                LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry)
+                    .overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.white, lineWidth: 5.0))
+                
+                
+                
+            })
+            .frame(width: 360, height: 379, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .foregroundColor(.black)
         })
     }
 }
