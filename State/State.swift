@@ -78,6 +78,7 @@ struct CommitCheckerWidgetView: View {
             case .systemMedium:
                 HStack(content: {
                     MobileState(entry: entry, family: family)
+                        .scaledToFit()
                     Spacer()
                     ShopAd()
                 })
@@ -86,7 +87,8 @@ struct CommitCheckerWidgetView: View {
                 Text("Large")
             }
         }
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .leading)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+    
         .padding()
         .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
     }
