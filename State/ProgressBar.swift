@@ -40,6 +40,7 @@ struct ProgressBar: View {
             Text("\(counter)")
                 .foregroundColor(.white)
                 .font(.system(size: CGFloat(self.fontSize)))
+                .allowsTightening(true)
         }
     }
     

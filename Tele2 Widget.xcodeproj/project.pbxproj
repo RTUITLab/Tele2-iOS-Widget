@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F39211D24F106840050D047 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39211C24F106840050D047 /* QrView.swift */; };
+		3F39211E24F106840050D047 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39211C24F106840050D047 /* QrView.swift */; };
 		E606771924F0A37400A62F96 /* MobileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771824F0A37400A62F96 /* MobileState.swift */; };
 		E606771A24F0A37400A62F96 /* MobileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771824F0A37400A62F96 /* MobileState.swift */; };
 		E606771C24F0A46300A62F96 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771B24F0A46300A62F96 /* Models.swift */; };
@@ -53,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F39211C24F106840050D047 /* QrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrView.swift; sourceTree = "<group>"; };
 		E606771824F0A37400A62F96 /* MobileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileState.swift; sourceTree = "<group>"; };
 		E606771B24F0A46300A62F96 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E630CDCF24F097CF00A815EF /* ShopAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAd.swift; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 				E630CDCF24F097CF00A815EF /* ShopAd.swift */,
 				E606771824F0A37400A62F96 /* MobileState.swift */,
 				E6AACDCF24F02D6C005C810D /* State.swift */,
+				3F39211C24F106840050D047 /* QrView.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -260,6 +264,7 @@
 				E6AACDD624F02D77005C810D /* State.intentdefinition in Sources */,
 				E606771C24F0A46300A62F96 /* Models.swift in Sources */,
 				E630CDD024F097CF00A815EF /* ShopAd.swift in Sources */,
+				3F39211D24F106840050D047 /* QrView.swift in Sources */,
 				E6AACDB624F02CA7005C810D /* Tele2_WidgetApp.swift in Sources */,
 				E656416F24F0AC5300B82FA3 /* ProgressBar.swift in Sources */,
 			);
@@ -272,6 +277,7 @@
 				E630CDD124F097CF00A815EF /* ShopAd.swift in Sources */,
 				E606771A24F0A37400A62F96 /* MobileState.swift in Sources */,
 				E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */,
+				3F39211E24F106840050D047 /* QrView.swift in Sources */,
 				E6AACDD024F02D6C005C810D /* State.swift in Sources */,
 				E656417024F0AC5300B82FA3 /* ProgressBar.swift in Sources */,
 				E606771D24F0A46300A62F96 /* Models.swift in Sources */,

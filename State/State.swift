@@ -66,7 +66,7 @@ struct CommitTimeline: TimelineProvider {
 
 struct CommitCheckerWidgetView: View {
     let entry: LastCommitEntry
-    
+    var mediumSecondView: String = "adamas"
     @Environment(\.widgetFamily) var family
     
     var body: some View {
@@ -78,15 +78,24 @@ struct CommitCheckerWidgetView: View {
             case .systemMedium:
                 HStack(content: {
                     MobileState(entry: entry, family: family)
+                        .scaledToFit()
                     Spacer()
-                    ShopAd()
+                    switch mediumSecondView {
+                    case "adamas":
+                        ShopAd()
+                    case "qr":
+                        QrView()
+                    default:
+                        Text("WTF?!")
+                    }
                 })
                 
             default:
                 Text("Large")
             }
         }
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .leading)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+        
         .padding()
         .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
     }
@@ -111,20 +120,26 @@ struct CommitCheckerWidgetWidget: Widget {
 
 struct State_PreviewsLarge: PreviewProvider {
     static var previews: some View {
-        CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
-            .previewContext(WidgetPreviewContext(family: .systemLarge))
-    }
-}
-struct State_PreviewsMedium: PreviewProvider {
-    static var previews: some View {
-        CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-    }
-}
-
-struct State_PreviewsSmall: PreviewProvider {
-    static var previews: some View {
-        CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        Group {
+            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("Large")
+            
+            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")), mediumSecondView: "qr")
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("Medium")
+            
+            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("Medium")
+            
+            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("Small")
+        }
     }
 }
