@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Large: View {
     var family : WidgetFamily
-    
+    var entry: LastLimitsEntry
     var body: some View {
         
         VStack(alignment: .leading,spacing: 4) {
@@ -32,7 +32,7 @@ struct Large: View {
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .allowsTightening(true)
-                    Text("+7 (900) 987-00-00")
+                    Text(self.entry.limits.phone)
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .allowsTightening(true)
@@ -44,7 +44,7 @@ struct Large: View {
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .allowsTightening(true)
-                    Text("750,09₽")
+                    Text("\(self.entry.limits.balance) ₽")
                         .font(.subheadline)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -66,13 +66,13 @@ struct Large: View {
                     .foregroundColor(.white)
                     .allowsTightening(true)
                 Spacer()
-                Text("100/100 минут")
+                Text("\(self.entry.limits.minutes.left)/\(self.entry.limits.minutes.total) минут")
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
             
-            ProgressBarHorizontal(value: 0.7).frame(height: 4)
+            ProgressBarHorizontal(counter: self.entry.limits.minutes.left, countTo: self.entry.limits.minutes.total).frame(height: 4)
                         
             HStack(content: {
                 Text("Интернет")
@@ -80,13 +80,13 @@ struct Large: View {
                     .foregroundColor(.white)
                     .allowsTightening(true)
                 Spacer()
-                Text("6/10 Гб")
+                Text("\(self.entry.limits.data.left)/\(self.entry.limits.data.total) Гб")
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
             
-            ProgressBarHorizontal(value: 0.3).frame(height: 4)
+            ProgressBarHorizontal(counter: self.entry.limits.data.left, countTo: self.entry.limits.data.total).frame(height: 4)
             
             HStack(content: {
                 Text("Сообщения")
@@ -94,13 +94,13 @@ struct Large: View {
                     .foregroundColor(.white)
                     .allowsTightening(true)
                 Spacer()
-                Text("58/58 сообщений")
+                Text("\(self.entry.limits.sms.left)/\(self.entry.limits.sms.total) сообщений")
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
             
-            ProgressBarHorizontal(value: 0.5).frame(height: 4)
+            ProgressBarHorizontal(counter: self.entry.limits.sms.left, countTo: self.entry.limits.sms.total).frame(height: 4)
             
             
             //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
@@ -136,7 +136,7 @@ struct Large: View {
 struct Large_Previews: PreviewProvider {
     static var previews: some View {
         
-        Large(family: .systemLarge)
+        Large(family: .systemLarge, entry: exampleLastLimitsEntry)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .environment(\.sizeCategory, .extraLarge)
             .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))

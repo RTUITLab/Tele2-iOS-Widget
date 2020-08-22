@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ProgressBarHorizontal: View {
-    var value: Float
-    
+    var counter: Int
+    var countTo: Int
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
@@ -17,16 +17,19 @@ struct ProgressBarHorizontal: View {
                     .opacity(0.3)
                     .foregroundColor(Color.gray)
                 
-                Rectangle().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
+                Rectangle().frame(width: min(self.progress()*geometry.size.width, geometry.size.width), height: geometry.size.height)
                     .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
                     .animation(.linear)
             }.cornerRadius(5.0)
         }
     }
+    func progress() -> CGFloat {
+        return (CGFloat(counter) / CGFloat(countTo))
+    }
 }
 
 struct ProgressBarHorizontal_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressBarHorizontal(value: 0.1).frame(height:5)
+        ProgressBarHorizontal(counter: 5, countTo: 15).frame(height:5)
     }
 }
