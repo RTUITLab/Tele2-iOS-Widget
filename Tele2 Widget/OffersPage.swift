@@ -39,11 +39,13 @@ struct OffersPage: View {
                             .multilineTextAlignment(.leading)
                         
                     })
-                    
+                    .padding(.leading)
+                    Spacer()
                     Image("adamasLogo")
                         .resizable()
                         .frame(width: 100, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .padding(.leading, 50.0)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
                 })
                 .padding(.leading)
                 
@@ -83,9 +85,17 @@ struct OffersPage: View {
                         .foregroundColor(Color.white)
                         .padding(.leading, 25)
                         
-                    Image("")
+                    Image("like")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .padding(.horizontal, 10.0)
+                    
+                    Image("noLike")
+                        .resizable()
+                        
+                        .frame(width: 26, height: 26)
+                        .padding(.horizontal, 10.0)
                     Spacer()
-                    Image("")
                 })
                 .frame(alignment: .leading)
                 .padding(.top, 40.0)
