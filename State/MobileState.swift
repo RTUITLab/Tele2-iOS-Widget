@@ -83,9 +83,9 @@ struct MobileState: View {
     func progressWidth() -> Float {
         switch family{
         case .systemSmall:
-            return 3
+            return 2
         case .systemMedium:
-            return 4
+            return 2
         default:
             return 12
         }

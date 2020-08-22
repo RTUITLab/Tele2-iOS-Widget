@@ -66,7 +66,7 @@ struct CommitTimeline: TimelineProvider {
 
 struct CommitCheckerWidgetView: View {
     let entry: LastCommitEntry
-    
+    var mediumSecondView: String = "adamas"
     @Environment(\.widgetFamily) var family
     
     var body: some View {
@@ -80,7 +80,14 @@ struct CommitCheckerWidgetView: View {
                     MobileState(entry: entry, family: family)
                         .scaledToFit()
                     Spacer()
-                    ShopAd()
+                    switch mediumSecondView {
+                    case "adamas":
+                        ShopAd()
+                    case "qr":
+                        QrView()
+                    default:
+                        Text("WTF?!")
+                    }
                 })
                 
             default:
@@ -118,6 +125,11 @@ struct State_PreviewsLarge: PreviewProvider {
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Large")
+            
+            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")), mediumSecondView: "qr")
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("Medium")
             
             CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
