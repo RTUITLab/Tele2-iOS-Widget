@@ -19,12 +19,12 @@ struct ShopAd: View {
                         .font(Font.custom("SF Ui Display", size: 11))
                         .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
                         .multilineTextAlignment(.center)
-                        .padding([.top, .leading, .trailing])
+                        .padding([.top, .leading])
                     Circle()
                         
                     .fill(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
                     .frame(width:9, height:9)
-                        .padding(.top)
+                        .padding([.top, .leading])
                                            
                     
                 }
@@ -48,8 +48,7 @@ struct ShopAd: View {
                         .foregroundColor(.white)
                         +
                         Text(" АДАМАС")
-                        .font(Font.custom("SF Ui Display", size: 10))                     .foregroundColor(.white)
-                        .bold()
+                        .font(Font.custom("SF Ui Display", size: 11))                     .foregroundColor(.white)
                     
                 }
                 .padding(.bottom)
