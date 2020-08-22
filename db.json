@@ -1,11 +1,16 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "hello"
+    "limits": {
+        "minutes": {
+            "total": 100,
+            "left": 100
+        },
+        "data": {
+            "total": 12,
+            "left" : 6 
+        },
+        "sms": {
+            "total": 60,
+            "left":58
         }
-    ],
-    "profile": {
-        "name": "typicode"
     }
 }
