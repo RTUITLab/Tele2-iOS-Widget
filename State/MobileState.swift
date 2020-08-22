@@ -9,7 +9,6 @@ import WidgetKit
 import SwiftUI
 
 struct MobileState: View {
-    let entry: LastCommitEntry
     var family : WidgetFamily
     
     var body: some View {
@@ -18,15 +17,15 @@ struct MobileState: View {
             HStack(content: {
                 VStack(content: {
                     Image("logoT2")
-//                        .resizable()
-//                        .frame(width: 53, height: 20)
+                    //                        .resizable()
+                    //                        .frame(width: 53, height: 20)
                 })
-//                .frame(width: 50, height: 20, alignment: .bottom)
+                //                .frame(width: 50, height: 20, alignment: .bottom)
                 Spacer()
                 VStack(content: {
                     Image("gift")
-//                        .resizable()
-//                        .frame(width: 21.0, height: 20.0)
+                    //                        .resizable()
+                    //                        .frame(width: 21.0, height: 20.0)
                 })
             })
             .padding(.bottom, 10.0)
@@ -36,11 +35,11 @@ struct MobileState: View {
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
-            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+            .aspectRatio(contentMode: .fill)
             
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Text("750,09₽")
+                Text("750,09 ₽")
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -67,16 +66,19 @@ struct MobileState: View {
                         .font(.footnote)
                         .foregroundColor(Color.white)
                         .allowsTightening(true)
-                        
-                        
+                    
+                    
                     ProgressBar(counter: 100, countTo: 100, width: progressWidth())
                     
                 })
                 
+                
             })
+            .scaledToFill()
             
         }
-        
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+        .padding()
         
         
     }
@@ -100,12 +102,28 @@ struct MobileState: View {
 
 struct MobileState_Previews: PreviewProvider {
     static var previews: some View {
-        
-        MobileState(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "", author: "", date: "")), family: .systemSmall)
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
-            .padding()
+        Group {
+            MobileState(family: .systemSmall)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .environment(\.sizeCategory, .extraLarge)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                
+                .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
+            
+            HStack(alignment: .center){
+                MobileState(family: .systemMedium)
+                    
+                    
+                    
+                
+                ShopAd()
+            }
+            
             .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
+            .environment(\.sizeCategory, .extraLarge)
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+            .previewDisplayName("Medium")
+        }
     }
 }
