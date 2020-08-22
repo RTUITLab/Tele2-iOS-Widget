@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1531DF24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DA24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf */; };
+		3F1531E024F11829002DF0A9 /* StandardStencil-Bold_media.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DB24F11829002DF0A9 /* StandardStencil-Bold_media.otf */; };
+		3F1531E124F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DC24F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf */; };
+		3F1531E224F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DD24F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf */; };
+		3F1531E324F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DE24F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf */; };
 		E606771924F0A37400A62F96 /* MobileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771824F0A37400A62F96 /* MobileState.swift */; };
 		E606771A24F0A37400A62F96 /* MobileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771824F0A37400A62F96 /* MobileState.swift */; };
 		E606771C24F0A46300A62F96 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771B24F0A46300A62F96 /* Models.swift */; };
@@ -53,6 +58,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F1531DA24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2TextSans-Bold-shortWeb_0.ttf"; sourceTree = "<group>"; };
+		3F1531DB24F11829002DF0A9 /* StandardStencil-Bold_media.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StandardStencil-Bold_media.otf"; sourceTree = "<group>"; };
+		3F1531DC24F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2TextSans-Regular-shortWeb_0.ttf"; sourceTree = "<group>"; };
+		3F1531DD24F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2DisplaySerif-Bold-shortWeb_0.ttf"; sourceTree = "<group>"; };
+		3F1531DE24F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2DisplaySerif-Regular-shortWeb_0.ttf"; sourceTree = "<group>"; };
 		E606771824F0A37400A62F96 /* MobileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileState.swift; sourceTree = "<group>"; };
 		E606771B24F0A46300A62F96 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E630CDCF24F097CF00A815EF /* ShopAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAd.swift; sourceTree = "<group>"; };
@@ -92,9 +102,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1531D924F11808002DF0A9 /* Fonds */ = {
+			isa = PBXGroup;
+			children = (
+				3F1531DB24F11829002DF0A9 /* StandardStencil-Bold_media.otf */,
+				3F1531DD24F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf */,
+				3F1531DE24F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf */,
+				3F1531DA24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf */,
+				3F1531DC24F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf */,
+			);
+			path = Fonds;
+			sourceTree = "<group>";
+		};
 		E6AACDA924F02CA7005C810D = {
 			isa = PBXGroup;
 			children = (
+				3F1531D924F11808002DF0A9 /* Fonds */,
 				E6AACDB424F02CA7005C810D /* Tele2 Widget */,
 				E6AACDCE24F02D6C005C810D /* State */,
 				E6AACDC924F02D6C005C810D /* Frameworks */,
@@ -235,7 +258,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1531DF24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf in Resources */,
+				3F1531E324F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf in Resources */,
+				3F1531E024F11829002DF0A9 /* StandardStencil-Bold_media.otf in Resources */,
 				E6AACDBD24F02CAB005C810D /* Preview Assets.xcassets in Resources */,
+				3F1531E124F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf in Resources */,
+				3F1531E224F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf in Resources */,
 				E6AACDBA24F02CAB005C810D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
