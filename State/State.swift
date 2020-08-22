@@ -80,17 +80,13 @@ struct CommitCheckerWidgetView: View {
                 HStack(content: {
                     MobileState(family: family)
                         .scaledToFit()
-                    Spacer()
-                    switch mediumSecondView {
-                    case "adamas":
-                        ShopAd()
-                    case "qr":
-                        QrView()
-                            .padding()
-                    default:
-                        Text("WTF?!")
-                    }
+                
+                    
+                    ShopAd()
+                        .layoutPriority(1)
+                    
                 })
+                .padding(6.0)
                 
             default:
                 Text("Large")
@@ -127,11 +123,6 @@ struct State_PreviewsLarge: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Large")
             
-            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")), mediumSecondView: "qr")
-                .environment(\.sizeCategory, .extraLarge)
-                .previewContext(WidgetPreviewContext(family: .systemMedium))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .previewDisplayName("Medium and QR")
             
             CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")), mediumSecondView: "adamas")
                 .environment(\.sizeCategory, .extraLarge)

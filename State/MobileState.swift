@@ -44,26 +44,27 @@ struct MobileState: View {
                     .fontWeight(.bold)
                     .foregroundColor(.white)
             })
-            .padding(.bottom, 2.0)
+            .padding(.bottom, 5.0)
+            
             
             HStack(content: {
-                VStack(content: {
+                VStack(spacing: 5, content: {
                     Text("Мин")
-                        .font(.footnote)
+                        .font(.caption2)
                         .foregroundColor(Color.white)
                     ProgressBar(counter: 30, countTo: 100, width: progressWidth())
                 })
                 
-                VStack(content: {
+                VStack(spacing: 5, content: {
                     Text("Гб")
-                        .font(.footnote)
+                        .font(.caption2)
                         .foregroundColor(Color.white)
                     ProgressBar(counter: 70, countTo: 100, width: progressWidth())
                 })
                 
-                VStack(content: {
+                VStack(spacing: 5, content: {
                     Text("SMS")
-                        .font(.footnote)
+                        .font(.caption2)
                         .foregroundColor(Color.white)
                         .allowsTightening(true)
                     
@@ -73,8 +74,11 @@ struct MobileState: View {
                 })
                 
                 
+                
             })
+            .layoutPriority(1)
             .scaledToFill()
+            
             
         }
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
@@ -87,7 +91,7 @@ struct MobileState: View {
         case .systemSmall:
             return 3
         case .systemMedium:
-            return 4
+            return 3
         default:
             return 12
         }
