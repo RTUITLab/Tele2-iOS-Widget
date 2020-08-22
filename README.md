@@ -9,5 +9,8 @@
 ## Предварительные дизайн-макеты виджетов
 
 
-
+![](doc/Widget_1.png)
+![](doc/Widget_2_activated.png)
+![](doc/Widget_3_Large_1st_try.png)
+![](doc/Widget_3_Large_2nd_try.png)
 
