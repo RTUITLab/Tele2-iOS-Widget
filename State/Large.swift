@@ -29,7 +29,7 @@ struct Large: View {
             HStack(alignment: .center,content: {
                 VStack(alignment: .leading,content: {
                     Text("Номер")
-                        .font(Font.custom("Tele2 DisplaySerif", size: 22))
+                        .font(Font.custom("Tele2 DisplaySerif Web SHORT", size: 22))
                         .bold()
                         .foregroundColor(.white)
                         .allowsTightening(true)
