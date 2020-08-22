@@ -27,6 +27,8 @@
 		3FD8D51A24F1CA8100F80136 /* SF-UI-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD8D51424F1CA8100F80136 /* SF-UI-Display-Regular.otf */; };
 		3A94EB7F24F14DA7008DB9AF /* LargeBottom1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94EB7E24F14DA7008DB9AF /* LargeBottom1.swift */; };
 		3A94EB8024F14DA7008DB9AF /* LargeBottom1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94EB7E24F14DA7008DB9AF /* LargeBottom1.swift */; };
+		3A94EB8224F16AC9008DB9AF /* MenuWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94EB8124F16AC9008DB9AF /* MenuWithButtons.swift */; };
+		3A94EB8324F16AC9008DB9AF /* MenuWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A94EB8124F16AC9008DB9AF /* MenuWithButtons.swift */; };
 		3ABB18D724F12F2C007AF3C6 /* LargeBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */; };
 		3ABB18D824F12F2C007AF3C6 /* LargeBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */; };
 		3ABB18DA24F13B06007AF3C6 /* LargeCombined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB18D924F13B06007AF3C6 /* LargeCombined.swift */; };
@@ -102,6 +104,7 @@
 		3FD8D51324F1CA8100F80136 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
 		3FD8D51424F1CA8100F80136 /* SF-UI-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Regular.otf"; sourceTree = "<group>"; };
 		3A94EB7E24F14DA7008DB9AF /* LargeBottom1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeBottom1.swift; sourceTree = "<group>"; };
+		3A94EB8124F16AC9008DB9AF /* MenuWithButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuWithButtons.swift; sourceTree = "<group>"; };
 		3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeBottom.swift; sourceTree = "<group>"; };
 		3ABB18D924F13B06007AF3C6 /* LargeCombined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCombined.swift; sourceTree = "<group>"; };
 		3ABC80DA24F10DF600494FBB /* Large.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Large.swift; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 				3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */,
 				3ABB18D924F13B06007AF3C6 /* LargeCombined.swift */,
 				3A94EB7E24F14DA7008DB9AF /* LargeBottom1.swift */,
+				3A94EB8124F16AC9008DB9AF /* MenuWithButtons.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -344,6 +348,7 @@
 			files = (
 				3F39212024F123970050D047 /* DataReceiving.swift in Sources */,
 				E6AACDB824F02CA7005C810D /* ContentView.swift in Sources */,
+				3A94EB8224F16AC9008DB9AF /* MenuWithButtons.swift in Sources */,
 				3ABC80DB24F10DF600494FBB /* Large.swift in Sources */,
 				3ABB18D724F12F2C007AF3C6 /* LargeBottom.swift in Sources */,
 				3A94EB7F24F14DA7008DB9AF /* LargeBottom1.swift in Sources */,
@@ -368,6 +373,7 @@
 				E606771A24F0A37400A62F96 /* MobileState.swift in Sources */,
 				3ABC80DF24F11FBE00494FBB /* ProgressBarHorizontal.swift in Sources */,
 				E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */,
+				3A94EB8324F16AC9008DB9AF /* MenuWithButtons.swift in Sources */,
 				3F39211E24F106840050D047 /* QrView.swift in Sources */,
 				3F39212124F123970050D047 /* DataReceiving.swift in Sources */,
 				3ABC80DC24F10DF600494FBB /* Large.swift in Sources */,
