@@ -31,7 +31,7 @@ struct MobileState: View {
             })
             .padding(.bottom, 10.0)
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Text("+7 (900) 987-00-00")
+                Text(self.entry.limits.phone)
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
@@ -40,7 +40,7 @@ struct MobileState: View {
             
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Text("750,09 ₽")
+                Text("\(self.entry.limits.balance) ₽")
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(.white)

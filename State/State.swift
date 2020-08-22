@@ -13,7 +13,7 @@ struct LimitsTimeLine: TimelineProvider {
     typealias Entry = LastLimitsEntry
     
     public func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
-        let limits = Limits(minutes: Limit(total: 100, left: 50), data: Limit(total: 120, left: 30), sms: Limit(total: 50, left: 10))
+        let limits = exampleLastLimitsEntry.limits
         
         completion(LastLimitsEntry(date: Date(), limits: limits))
     }
@@ -27,7 +27,7 @@ struct LimitsTimeLine: TimelineProvider {
             if case .success(let fetchedLimits) = result {
                 limits = fetchedLimits
             } else {
-                limits =  Limits(minutes: Limit(total: 100, left: 1), data: Limit(total: 120, left: 1), sms: Limit(total: 50, left: 1))
+                limits =  Limits(phone: "+0 (000) 000-00-00", balance: "err", minutes: Limit(total: 100, left: 1), data: Limit(total: 120, left: 1), sms: Limit(total: 50, left: 1))
             }
             let entry = LastLimitsEntry(date: currentDate, limits: limits)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))

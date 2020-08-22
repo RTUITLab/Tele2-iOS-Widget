@@ -1,7 +1,7 @@
 {
     "limits": {
-        "phone":"+7 (900) 987-00-00",
-        "balance": 750.09,
+        "phone":"+7 (999) 987-00-00",
+        "balance": "250.09",
         "minutes": {
             "total": 100,
             "left": 100

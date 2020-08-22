@@ -24,6 +24,8 @@ struct Limit {
 }
 
 struct Limits {
+    let phone: String
+    let balance: String
     let minutes: Limit
     let data: Limit
     let sms: Limit
@@ -36,6 +38,8 @@ struct LastLimitsEntry: TimelineEntry {
 
 let exampleLastLimitsEntry = LastLimitsEntry (date: Date(),
                                               limits: Limits(
+                                                phone: "+7 (800) 555-35-35",
+                                                balance: "345.54",
                                                 minutes: Limit(total: 100, left: 20),
                                                 data: Limit(total: 328, left: 123) ,
                                                 sms:Limit(total: 200, left: 60)))

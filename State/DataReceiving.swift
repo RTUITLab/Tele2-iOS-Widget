@@ -28,6 +28,9 @@ struct LimitsLoader {
         let dataObject = json["data"] as! [String: Any]
         let smsObject = json["sms"] as! [String: Any]
         
+        let phone = json["phone"] as! String
+        let balance = json["balance"] as! String
+        
         let minTotal = minutesObject["total"] as! Int
         let minLeft = minutesObject["left"] as! Int
         
@@ -38,6 +41,6 @@ struct LimitsLoader {
         let smsLeft = smsObject["left"] as! Int
 
         
-        return Limits(minutes: Limit(total: minTotal, left: minLeft), data: Limit(total: dataTotal, left: dataLeft), sms: Limit(total: smsTotal, left: smsLeft))
+        return Limits(phone: phone, balance: balance, minutes: Limit(total: minTotal, left: minLeft), data: Limit(total: dataTotal, left: dataLeft), sms: Limit(total: smsTotal, left: smsLeft))
     }
 }
