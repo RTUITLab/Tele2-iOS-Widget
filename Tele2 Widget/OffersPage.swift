@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct OffersPage: View {
     var body: some View {
@@ -52,7 +53,7 @@ struct OffersPage: View {
                 Spacer()
                 
                 Button(action: {
-                    print("Delete tapped!")
+                    WidgetCenter.shared.reloadAllTimelines()
                 }) {
                     VStack(alignment: .center){
                         Text("Активировать")

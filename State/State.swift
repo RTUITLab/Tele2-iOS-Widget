@@ -13,23 +13,26 @@ struct LimitsTimeLine: TimelineProvider {
     typealias Entry = LastLimitsEntry
     
     public func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
-        let limits = exampleLastLimitsEntry.limits
-        
-        completion(LastLimitsEntry(date: Date(), limits: limits))
+        let entryData = exampleLastLimitsEntry.entry
+
+        completion(LastLimitsEntry(date: Date(), entry: entryData))
     }
     
     public func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         let currentDate = Date()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 5, to: currentDate)!
-        
+//        let timeline = Timeline(entries: [exampleLastLimitsEntry], policy: .after(refreshDate))
+//        completion(timeline)
         LimitsLoader.fetch { result in
-            let limits: Limits
+            let entryData: ModelEntry
+
+
             if case .success(let fetchedLimits) = result {
-                limits = fetchedLimits
+                entryData = fetchedLimits
             } else {
-                limits =  Limits(phone: "+0 (000) 000-00-00", balance: "err", minutes: Limit(total: 100, left: 1), data: Limit(total: 120, left: 1), sms: Limit(total: 50, left: 1))
+                entryData = exampleLastLimitsEntry.entry
             }
-            let entry = LastLimitsEntry(date: currentDate, limits: limits)
+            let entry = LastLimitsEntry(date: currentDate, entry: entryData)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)
         }
@@ -45,11 +48,11 @@ struct CommitCheckerWidgetView: View {
         VStack() {
             switch family{
             case .systemSmall:
-                MobileState(family: family, entry: self.entry)
+                MobileState(family: family, entry: self.entry.entry.limits)
                 
             case .systemMedium:
                 HStack(content: {
-                    MobileState(family: family, entry: self.entry)
+                    MobileState(family: family, entry: self.entry.entry.limits)
                         .scaledToFit()
                     ShopAd()
                         .layoutPriority(1)
@@ -57,7 +60,7 @@ struct CommitCheckerWidgetView: View {
                 .padding(6.0)
                 
             default:
-                LargeCombined(family: family, entry: entry)
+                LargeCombined(family: family, entry: self.entry.entry.limits)
             }
         }
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
