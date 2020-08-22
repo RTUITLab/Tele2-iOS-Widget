@@ -71,13 +71,13 @@ struct CommitCheckerWidgetView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading) {
+        VStack() {
             switch family{
             case .systemSmall:
-                MobileState(entry: entry, family: family)
+                MobileState(family: family)
             case .systemMedium:
                 HStack(content: {
-                    MobileState(entry: entry, family: family)
+                    MobileState(family: family)
                         .scaledToFit()
                     Spacer()
                     ShopAd()
@@ -127,9 +127,9 @@ struct State_PreviewsLarge: PreviewProvider {
                 .previewDisplayName("Medium")
             
             CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
-                .environment(\.sizeCategory, .extraLarge)
-                .previewDevice("iPhone 11 Pro Max")
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .environment(\.sizeCategory, .extraLarge)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Small")
         }
     }
