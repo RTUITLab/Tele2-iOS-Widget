@@ -9,8 +9,8 @@ import WidgetKit
 import SwiftUI
 
 struct MobileState: View {
-    let entry: LastCommitEntry
     var family : WidgetFamily
+    var entry: LastLimitsEntry
     
     var body: some View {
         VStack(alignment: .center, spacing: 4) {
@@ -18,65 +18,72 @@ struct MobileState: View {
             HStack(content: {
                 VStack(content: {
                     Image("logoT2")
-//                        .resizable()
-//                        .frame(width: 53, height: 20)
+                    //                        .resizable()
+                    //                        .frame(width: 53, height: 20)
                 })
-//                .frame(width: 50, height: 20, alignment: .bottom)
+                //                .frame(width: 50, height: 20, alignment: .bottom)
                 Spacer()
                 VStack(content: {
                     Image("gift")
-//                        .resizable()
-//                        .frame(width: 21.0, height: 20.0)
+                    //                        .resizable()
+                    //                        .frame(width: 21.0, height: 20.0)
                 })
             })
             .padding(.bottom, 10.0)
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Text("+7 (900) 987-00-00")
+                Text(self.entry.limits.phone)
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
-            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+            .aspectRatio(contentMode: .fill)
             
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Text("750,09₽")
+                Text("\(self.entry.limits.balance) ₽")
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
             })
-            .padding(.bottom, 2.0)
+            .padding(.bottom, 5.0)
+            
             
             HStack(content: {
-                VStack(content: {
+                VStack(spacing: 5, content: {
                     Text("Мин")
-                        .font(.footnote)
+                        .font(.caption2)
                         .foregroundColor(Color.white)
-                    ProgressBar(counter: 30, countTo: 100, width: progressWidth())
+                    ProgressBar(counter: self.entry.limits.minutes.left, countTo: self.entry.limits.minutes.total, width: progressWidth())
                 })
                 
-                VStack(content: {
+                VStack(spacing: 5, content: {
                     Text("Гб")
-                        .font(.footnote)
+                        .font(.caption2)
                         .foregroundColor(Color.white)
-                    ProgressBar(counter: 70, countTo: 100, width: progressWidth())
+                    ProgressBar(counter: self.entry.limits.data.left, countTo: self.entry.limits.data.total, width: progressWidth())
                 })
                 
-                VStack(content: {
+                VStack(spacing: 5, content: {
                     Text("SMS")
-                        .font(.footnote)
+                        .font(.caption2)
                         .foregroundColor(Color.white)
                         .allowsTightening(true)
-                        
-                        
-                    ProgressBar(counter: 100, countTo: 100, width: progressWidth())
+                    
+                    
+                    ProgressBar(counter: self.entry.limits.sms.left, countTo: self.entry.limits.sms.total, width: progressWidth())
                     
                 })
                 
+                
+                
             })
+            .layoutPriority(1)
+            .scaledToFill()
+            
             
         }
-        
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+        .padding()
         
         
     }
@@ -85,7 +92,7 @@ struct MobileState: View {
         case .systemSmall:
             return 3
         case .systemMedium:
-            return 4
+            return 3
         default:
             return 12
         }
@@ -100,12 +107,24 @@ struct MobileState: View {
 
 struct MobileState_Previews: PreviewProvider {
     static var previews: some View {
-        
-        MobileState(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "", author: "", date: "")), family: .systemSmall)
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
-            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
-            .padding()
+        Group {
+            MobileState( family: .systemSmall, entry: exampleLastLimitsEntry)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .environment(\.sizeCategory, .extraLarge)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                
+                .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
+            
+            HStack(alignment: .center){
+                MobileState(family: .systemMedium, entry: exampleLastLimitsEntry)
+                ShopAd()
+            }
+            
             .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
+            .environment(\.sizeCategory, .extraLarge)
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+            .previewDisplayName("Medium")
+        }
     }
 }

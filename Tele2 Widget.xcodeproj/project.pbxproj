@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1531DF24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DA24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf */; };
+		3F1531E024F11829002DF0A9 /* StandardStencil-Bold_media.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DB24F11829002DF0A9 /* StandardStencil-Bold_media.otf */; };
+		3F1531E124F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DC24F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf */; };
+		3F1531E224F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DD24F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf */; };
+		3F1531E324F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F1531DE24F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf */; };
+		3F39211D24F106840050D047 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39211C24F106840050D047 /* QrView.swift */; };
+		3F39211E24F106840050D047 /* QrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39211C24F106840050D047 /* QrView.swift */; };
+		3F39212024F123970050D047 /* DataReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39211F24F123970050D047 /* DataReceiving.swift */; };
+		3F39212124F123970050D047 /* DataReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39211F24F123970050D047 /* DataReceiving.swift */; };
 		3ABB18D724F12F2C007AF3C6 /* LargeBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */; };
 		3ABB18D824F12F2C007AF3C6 /* LargeBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */; };
 		3ABB18DA24F13B06007AF3C6 /* LargeCombined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABB18D924F13B06007AF3C6 /* LargeCombined.swift */; };
@@ -61,6 +70,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F1531DA24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2TextSans-Bold-shortWeb_0.ttf"; sourceTree = "<group>"; };
+		3F1531DB24F11829002DF0A9 /* StandardStencil-Bold_media.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "StandardStencil-Bold_media.otf"; sourceTree = "<group>"; };
+		3F1531DC24F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2TextSans-Regular-shortWeb_0.ttf"; sourceTree = "<group>"; };
+		3F1531DD24F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2DisplaySerif-Bold-shortWeb_0.ttf"; sourceTree = "<group>"; };
+		3F1531DE24F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tele2DisplaySerif-Regular-shortWeb_0.ttf"; sourceTree = "<group>"; };
+		3F39211C24F106840050D047 /* QrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrView.swift; sourceTree = "<group>"; };
+		3F39211F24F123970050D047 /* DataReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReceiving.swift; sourceTree = "<group>"; };
 		3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeBottom.swift; sourceTree = "<group>"; };
 		3ABB18D924F13B06007AF3C6 /* LargeCombined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeCombined.swift; sourceTree = "<group>"; };
 		3ABC80DA24F10DF600494FBB /* Large.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Large.swift; sourceTree = "<group>"; };
@@ -104,9 +120,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1531D924F11808002DF0A9 /* Fonds */ = {
+			isa = PBXGroup;
+			children = (
+				3F1531DB24F11829002DF0A9 /* StandardStencil-Bold_media.otf */,
+				3F1531DD24F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf */,
+				3F1531DE24F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf */,
+				3F1531DA24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf */,
+				3F1531DC24F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf */,
+			);
+			path = Fonds;
+			sourceTree = "<group>";
+		};
 		E6AACDA924F02CA7005C810D = {
 			isa = PBXGroup;
 			children = (
+				3F1531D924F11808002DF0A9 /* Fonds */,
 				E6AACDB424F02CA7005C810D /* Tele2 Widget */,
 				E6AACDCE24F02D6C005C810D /* State */,
 				E6AACDC924F02D6C005C810D /* Frameworks */,
@@ -156,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				E606771B24F0A46300A62F96 /* Models.swift */,
+				3F39211F24F123970050D047 /* DataReceiving.swift */,
 				E656416E24F0AC5300B82FA3 /* ProgressBar.swift */,
 				E6AACDD124F02D6C005C810D /* State.intentdefinition */,
 				E6AACDD224F02D77005C810D /* Assets.xcassets */,
@@ -163,6 +193,7 @@
 				E630CDCF24F097CF00A815EF /* ShopAd.swift */,
 				E606771824F0A37400A62F96 /* MobileState.swift */,
 				E6AACDCF24F02D6C005C810D /* State.swift */,
+				3F39211C24F106840050D047 /* QrView.swift */,
 				3ABC80DD24F11FBE00494FBB /* ProgressBarHorizontal.swift */,
 				3ABC80DA24F10DF600494FBB /* Large.swift */,
 				3ABB18D624F12F2C007AF3C6 /* LargeBottom.swift */,
@@ -251,7 +282,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1531DF24F11829002DF0A9 /* Tele2TextSans-Bold-shortWeb_0.ttf in Resources */,
+				3F1531E324F11829002DF0A9 /* Tele2DisplaySerif-Regular-shortWeb_0.ttf in Resources */,
+				3F1531E024F11829002DF0A9 /* StandardStencil-Bold_media.otf in Resources */,
 				E6AACDBD24F02CAB005C810D /* Preview Assets.xcassets in Resources */,
+				3F1531E124F11829002DF0A9 /* Tele2TextSans-Regular-shortWeb_0.ttf in Resources */,
+				3F1531E224F11829002DF0A9 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf in Resources */,
 				E6AACDBA24F02CAB005C810D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F39212024F123970050D047 /* DataReceiving.swift in Sources */,
 				E6AACDB824F02CA7005C810D /* ContentView.swift in Sources */,
 				3ABC80DB24F10DF600494FBB /* Large.swift in Sources */,
 				3ABB18D724F12F2C007AF3C6 /* LargeBottom.swift in Sources */,
@@ -279,6 +316,7 @@
 				E6AACDD624F02D77005C810D /* State.intentdefinition in Sources */,
 				E606771C24F0A46300A62F96 /* Models.swift in Sources */,
 				E630CDD024F097CF00A815EF /* ShopAd.swift in Sources */,
+				3F39211D24F106840050D047 /* QrView.swift in Sources */,
 				E6AACDB624F02CA7005C810D /* Tele2_WidgetApp.swift in Sources */,
 				3ABC80DE24F11FBE00494FBB /* ProgressBarHorizontal.swift in Sources */,
 				E656416F24F0AC5300B82FA3 /* ProgressBar.swift in Sources */,
@@ -293,6 +331,8 @@
 				E606771A24F0A37400A62F96 /* MobileState.swift in Sources */,
 				3ABC80DF24F11FBE00494FBB /* ProgressBarHorizontal.swift in Sources */,
 				E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */,
+				3F39211E24F106840050D047 /* QrView.swift in Sources */,
+				3F39212124F123970050D047 /* DataReceiving.swift in Sources */,
 				3ABC80DC24F10DF600494FBB /* Large.swift in Sources */,
 				E6AACDD024F02D6C005C810D /* State.swift in Sources */,
 				3ABB18DB24F13B06007AF3C6 /* LargeCombined.swift in Sources */,
