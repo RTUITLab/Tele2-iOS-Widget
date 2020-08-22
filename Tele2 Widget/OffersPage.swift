@@ -62,7 +62,7 @@ struct OffersPage: View {
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
                     }
-                    .frame(width: 230,height:40)
+                    .frame(width: 230,height:25)
                     .padding()
                     .foregroundColor(.white)
                     .background(Color.white)
