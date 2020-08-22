@@ -13,6 +13,8 @@
 		E606771D24F0A46300A62F96 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771B24F0A46300A62F96 /* Models.swift */; };
 		E630CDD024F097CF00A815EF /* ShopAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CDCF24F097CF00A815EF /* ShopAd.swift */; };
 		E630CDD124F097CF00A815EF /* ShopAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CDCF24F097CF00A815EF /* ShopAd.swift */; };
+		E656416F24F0AC5300B82FA3 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656416E24F0AC5300B82FA3 /* ProgressBar.swift */; };
+		E656417024F0AC5300B82FA3 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E656416E24F0AC5300B82FA3 /* ProgressBar.swift */; };
 		E6AACDB624F02CA7005C810D /* Tele2_WidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDB524F02CA7005C810D /* Tele2_WidgetApp.swift */; };
 		E6AACDB824F02CA7005C810D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDB724F02CA7005C810D /* ContentView.swift */; };
 		E6AACDBA24F02CAB005C810D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6AACDB924F02CAB005C810D /* Assets.xcassets */; };
@@ -54,6 +56,7 @@
 		E606771824F0A37400A62F96 /* MobileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileState.swift; sourceTree = "<group>"; };
 		E606771B24F0A46300A62F96 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E630CDCF24F097CF00A815EF /* ShopAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAd.swift; sourceTree = "<group>"; };
+		E656416E24F0AC5300B82FA3 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		E6AACDB224F02CA7005C810D /* Tele2 Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tele2 Widget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6AACDB524F02CA7005C810D /* Tele2_WidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tele2_WidgetApp.swift; sourceTree = "<group>"; };
 		E6AACDB724F02CA7005C810D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				E606771B24F0A46300A62F96 /* Models.swift */,
+				E656416E24F0AC5300B82FA3 /* ProgressBar.swift */,
 				E6AACDD124F02D6C005C810D /* State.intentdefinition */,
 				E6AACDD224F02D77005C810D /* Assets.xcassets */,
 				E6AACDD424F02D77005C810D /* Info.plist */,
@@ -257,6 +261,7 @@
 				E606771C24F0A46300A62F96 /* Models.swift in Sources */,
 				E630CDD024F097CF00A815EF /* ShopAd.swift in Sources */,
 				E6AACDB624F02CA7005C810D /* Tele2_WidgetApp.swift in Sources */,
+				E656416F24F0AC5300B82FA3 /* ProgressBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +273,7 @@
 				E606771A24F0A37400A62F96 /* MobileState.swift in Sources */,
 				E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */,
 				E6AACDD024F02D6C005C810D /* State.swift in Sources */,
+				E656417024F0AC5300B82FA3 /* ProgressBar.swift in Sources */,
 				E606771D24F0A46300A62F96 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

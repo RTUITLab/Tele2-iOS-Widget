@@ -13,31 +13,62 @@ struct MobileState: View {
     var family : WidgetFamily
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .center, spacing: 4) {
             
-            VStack(content: {
-                Image("logoT2")
-                    .resizable()
-                    .frame(width: 53, height: 20)
+            HStack(content: {
+                VStack(content: {
+                    Image("logoT2")
+                        .resizable()
+                        .frame(width: 53, height: 20)
+                })
+                .frame(width: 50, height: 20, alignment: .bottom)
+                Spacer()
+                VStack(content: {
+                    Image("gift")
+                        .resizable()
+                        .frame(width: 21.0, height: 20.0)
+                })
             })
-            .frame(width: 70, height: 20, alignment: .bottom)
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
+                Text("+7(900)987-00-00")
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+            })
+            .padding(.top, 10.0)
+            .padding(.bottom, 1.0)
             
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-                Text("Placeholder")
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
+                Text("750,09₽")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
             })
-            Text("Lastest Commit")
-                .font(.system(.title3))
-                .foregroundColor(.black)
-            Text(entry.commit.messager)
-                .font(.system(.callout))
-                .foregroundColor(.black)
-                .bold()
-            Text("by \(entry.commit.author) at \(entry.commit.date)")
-                .font(.system(.caption))
-                .foregroundColor(.black)
-            Text("Updated at \(Self.format(date:entry.date))")
-                .font(.system(.caption2))
-                .foregroundColor(.black)
+            .padding(.bottom, 1.0)
+            
+            HStack(content: {
+                VStack(content: {
+                    Text("Мин")
+                        .font(.footnote)
+                        .foregroundColor(Color.white)
+                    ProgressBar(counter: 30, countTo: 100, width: progressWidth())
+                })
+                VStack(content: {
+                    Text("Гб")
+                        .font(.footnote)
+                        .foregroundColor(Color.white)
+                    ProgressBar(counter: 70, countTo: 100, width: progressWidth())
+                })
+                VStack(content: {
+                    Text("SMS")
+                        .font(.footnote)
+                        .foregroundColor(Color.white)
+                        .allowsTightening(true)
+                        
+                        
+                    ProgressBar(counter: 100, countTo: 100, width: progressWidth())
+                })
+                
+            })
         }
     }
     func progressWidth() -> Float {
