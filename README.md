@@ -27,3 +27,7 @@
 ![](doc/Widget_3_Large_1st_try.png)
 ![](doc/Widget_3_Large_2nd_try.png)
 
+![](doc/Application_default.png)
+![](doc/Application_QR_activation.png)
+![](doc/Widget_2_activated_2.png)
+
