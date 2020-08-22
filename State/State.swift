@@ -115,18 +115,21 @@ struct State_PreviewsLarge: PreviewProvider {
     static var previews: some View {
         Group {
             CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+                .environment(\.sizeCategory, .extraLarge)
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Large")
             
             CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+                .environment(\.sizeCategory, .extraLarge)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Medium")
             
             CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+                .environment(\.sizeCategory, .extraLarge)
+                .previewDevice("iPhone 11 Pro Max")
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
-                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Small")
         }
     }
