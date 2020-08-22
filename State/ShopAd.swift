@@ -25,6 +25,7 @@ struct ShopAd_Previews: PreviewProvider {
             .padding()
             .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
             
     }
 }
