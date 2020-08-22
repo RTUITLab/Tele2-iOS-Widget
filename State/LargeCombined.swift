@@ -18,7 +18,7 @@ struct LargeCombined: View {
                 .padding(.top, 20)
                 .padding(.horizontal, 20)
             Spacer()
-            LargeBottom(family: family)
+            LargeBottom1(family: family)
         })
         
     }
