@@ -77,7 +77,8 @@ struct MobileState: View {
             .scaledToFill()
             
         }
-        
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
+        .padding()
         
         
     }
@@ -106,8 +107,7 @@ struct MobileState_Previews: PreviewProvider {
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraLarge)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-                .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
-                .padding()
+                
                 .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
             
             HStack(alignment: .center){
@@ -118,8 +118,7 @@ struct MobileState_Previews: PreviewProvider {
                 
                 ShopAd()
             }
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
-            .padding()
+            
             .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
             .environment(\.sizeCategory, .extraLarge)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
