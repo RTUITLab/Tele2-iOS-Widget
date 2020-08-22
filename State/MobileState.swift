@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MobileState: View {
     var family : WidgetFamily
+    var entry: LastLimitsEntry
     
     var body: some View {
         VStack(alignment: .center, spacing: 4) {
@@ -52,14 +53,14 @@ struct MobileState: View {
                     Text("Мин")
                         .font(.caption2)
                         .foregroundColor(Color.white)
-                    ProgressBar(counter: 30, countTo: 100, width: progressWidth())
+                    ProgressBar(counter: self.entry.limits.minutes.left, countTo: self.entry.limits.minutes.total, width: progressWidth())
                 })
                 
                 VStack(spacing: 5, content: {
                     Text("Гб")
                         .font(.caption2)
                         .foregroundColor(Color.white)
-                    ProgressBar(counter: 70, countTo: 100, width: progressWidth())
+                    ProgressBar(counter: self.entry.limits.data.left, countTo: self.entry.limits.data.total, width: progressWidth())
                 })
                 
                 VStack(spacing: 5, content: {
@@ -69,7 +70,7 @@ struct MobileState: View {
                         .allowsTightening(true)
                     
                     
-                    ProgressBar(counter: 100, countTo: 100, width: progressWidth())
+                    ProgressBar(counter: self.entry.limits.sms.left, countTo: self.entry.limits.sms.total, width: progressWidth())
                     
                 })
                 
@@ -107,7 +108,7 @@ struct MobileState: View {
 struct MobileState_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MobileState(family: .systemSmall)
+            MobileState( family: .systemSmall, entry: exampleLastLimitsEntry)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraLarge)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
@@ -115,11 +116,7 @@ struct MobileState_Previews: PreviewProvider {
                 .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
             
             HStack(alignment: .center){
-                MobileState(family: .systemMedium)
-                    
-                    
-                    
-                
+                MobileState(family: .systemMedium, entry: exampleLastLimitsEntry)
                 ShopAd()
             }
             
