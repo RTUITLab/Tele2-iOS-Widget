@@ -13,39 +13,42 @@ struct ShopAd: View {
         HStack {
             VStack(alignment: .center){
                 VStack(alignment: .center){
-                    Text ("Может быть")
-                        .font(.caption2)
-                        .foregroundColor(.white)
-                        .bold()
-                        +
-                        Text(" интересно")
-                        .font(.caption2)
-                        .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
-                        .bold()
                     
+                HStack(alignment: .center){
+                    Text ("Недалеко от Вас")
+                        .font(Font.custom("SF Ui Display", size: 11))
+                        .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
+                        .multilineTextAlignment(.center)
+                        .padding([.top, .leading])
+                    Circle()
+                        
+                    .fill(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
+                    .frame(width:9, height:9)
+                        .padding([.top, .leading])
+                                           
+                    
+                }
                     Image("adamas")
                         .resizable()
                         .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                         .frame(width:45, height:45)
+                        .padding(.top, 1.0)
+                            
+                    
                 }
-                .padding(.top)
                 
                 VStack(alignment: .center) {
                     Text("Бесплатная подвеска и")
-                        .font(.caption2)
+                        .font(Font.custom("SF Ui Display", size: 11))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.top, 1.0)
                     
-                    Text ("скидка 15%")
-                        .font(.caption2)
+                    Text ("скидка 15% в")                       .font(Font.custom("SF Ui Display", size: 11))
                         .foregroundColor(.white)
-                        .bold()
                         +
-                        Text(" недалко от вас")
-                        .font(.caption2)
-                        .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
-                        .bold()
+                        Text(" АДАМАС")
+                        .font(Font.custom("SF Ui Display", size: 11))                     .foregroundColor(.white)
                     
                 }
                 .padding(.bottom)
@@ -55,7 +58,8 @@ struct ShopAd: View {
                 }) {
                     VStack(alignment: .center){
                         Text("Активировать")
-                            .padding(.vertical)
+                            .font(Font.custom("SF Ui Display", size: 12))
+                            .bold()
                             .font(.footnote)
                             .foregroundColor(.black)
                             .multilineTextAlignment(.center)
@@ -81,6 +85,7 @@ struct ShopAd: View {
         
     }
 }
+
 
 struct ShopAd_Previews: PreviewProvider {
     static var previews: some View {
