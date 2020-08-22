@@ -24,6 +24,21 @@
 
 ![](doc/Widget_1.png)
 ![](doc/Widget_2_activated.png)
+
+### Решили отказаться от "навязчивости"
 ![](doc/Widget_3_Large_1st_try.png)
+
+
+### В пользу простоты и понятности
 ![](doc/Widget_3_Large_2nd_try.png)
+
+### Как приложение выглядело
+![](doc/Application_default.png)
+
+### Куда перекидывает после нажатия на виджет. Решили сделать так, потому что нельзя всю важную информацию уместить на виджете.
+![](doc/Application_QR_activation.png)
+![](doc/Widget_settings.png)
+
+### Вариант кастомизации виджета пользователем
+![](doc/Widget_2_activated_2.png)
 

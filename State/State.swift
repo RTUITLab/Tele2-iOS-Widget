@@ -8,56 +8,28 @@
 import WidgetKit
 import SwiftUI
 
-struct CommitLoader {
-    static func fetch(completion: @escaping(Result<Commit, Error>) -> Void) {
-        let branchContentsURL = URL(string: "https://api.github.com/repos/RTUITLab/ITLab/branches/master")!
-        let task = URLSession.shared.dataTask(with: branchContentsURL) {
-            (data, response, error) in
-            guard error == nil else {
-                completion(.failure(error!))
-                return
-            }
-            let commit = getCommitInfo(fromData: data!)
-            completion(.success(commit))
-        }
-        task.resume()
-    }
-    
-    static func getCommitInfo(fromData data: Foundation.Data) -> Commit {
-        let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-        let commitParentJson = json["commit"] as! [String: Any]
-        let commitJson = commitParentJson["commit"] as! [String: Any]
-        let authorJson = commitJson["author"] as! [String: Any]
-        let message = commitJson["message"] as! String
-        let author = authorJson["name"] as! String
-        let date = authorJson["date"] as! String
-        
-        return Commit(messager: message, author: author, date: date)
-    }
-}
 
-struct CommitTimeline: TimelineProvider {
-    typealias Entry = LastCommitEntry
+struct LimitsTimeLine: TimelineProvider {
+    typealias Entry = LastLimitsEntry
     
-    public func getSnapshot(in context: Context, completion: @escaping (LastCommitEntry) -> ()) {
-        let fakeCommit = Commit(messager: "Test", author: "Noname", date: "2020")
-        let entry = LastCommitEntry(date: Date(), commit: fakeCommit)
+    public func getSnapshot(in context: Context, completion: @escaping (Entry) -> ()) {
+        let limits = exampleLastLimitsEntry.limits
         
-        completion(entry)
+        completion(LastLimitsEntry(date: Date(), limits: limits))
     }
     
-    public func getTimeline(in context: Context, completion: @escaping (Timeline<LastCommitEntry>) -> Void) {
+    public func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         let currentDate = Date()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 5, to: currentDate)!
         
-        CommitLoader.fetch { result in
-            let commit: Commit
-            if case .success(let fetchedCommit) = result {
-                commit = fetchedCommit
+        LimitsLoader.fetch { result in
+            let limits: Limits
+            if case .success(let fetchedLimits) = result {
+                limits = fetchedLimits
             } else {
-                commit = Commit(messager: "Failed", author: "", date: "")
+                limits =  Limits(phone: "+0 (000) 000-00-00", balance: "err", minutes: Limit(total: 100, left: 1), data: Limit(total: 120, left: 1), sms: Limit(total: 50, left: 1))
             }
-            let entry = LastCommitEntry(date: currentDate, commit: commit)
+            let entry = LastLimitsEntry(date: currentDate, limits: limits)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)
         }
@@ -65,8 +37,7 @@ struct CommitTimeline: TimelineProvider {
 }
 
 struct CommitCheckerWidgetView: View {
-    let entry: LastCommitEntry
-    var mediumSecondView: String = "qr"
+    let entry: LastLimitsEntry
     @Environment(\.widgetFamily) var family
     
     var body: some View {
@@ -74,22 +45,19 @@ struct CommitCheckerWidgetView: View {
         VStack() {
             switch family{
             case .systemSmall:
-                MobileState(family: family)
-                    
+                MobileState(family: family, entry: self.entry)
+                
             case .systemMedium:
                 HStack(content: {
-                    MobileState(family: family)
+                    MobileState(family: family, entry: self.entry)
                         .scaledToFit()
-                
-                    
                     ShopAd()
                         .layoutPriority(1)
-                    
                 })
                 .padding(6.0)
                 
             default:
-                Text("Large")
+                LargeCombined(family: family, entry: entry)
             }
         }
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
@@ -105,7 +73,7 @@ struct CommitCheckerWidgetWidget: Widget {
     private let kind: String = "CommitCheckerWidget"
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: CommitTimeline()) { entry in
+        StaticConfiguration(kind: kind, provider: LimitsTimeLine()) { entry in
             CommitCheckerWidgetView(entry: entry)
         }
         .configurationDisplayName("Lasted Commit")
@@ -117,25 +85,25 @@ struct CommitCheckerWidgetWidget: Widget {
 struct State_PreviewsLarge: PreviewProvider {
     static var previews: some View {
         Group {
-            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+            CommitCheckerWidgetView(entry: exampleLastLimitsEntry)
                 .environment(\.sizeCategory, .extraLarge)
                 .previewContext(WidgetPreviewContext(family: .systemLarge))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Large")
             
             
-            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")), mediumSecondView: "adamas")
+            CommitCheckerWidgetView(entry: exampleLastLimitsEntry)
                 .environment(\.sizeCategory, .extraLarge)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Medium and adamas")
             
-            CommitCheckerWidgetView(entry: LastCommitEntry(date: Date(), commit: Commit(messager: "Test", author: "", date: "")))
+            CommitCheckerWidgetView(entry: exampleLastLimitsEntry)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraLarge)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Small")
-                
+            
             
         }
     }

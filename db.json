@@ -1,0 +1,18 @@
+{
+    "limits": {
+        "phone":"+7 (999) 987-00-00",
+        "balance": "250.09",
+        "minutes": {
+            "total": 100,
+            "left": 100
+        },
+        "data": {
+            "total": 12,
+            "left" : 6 
+        },
+        "sms": {
+            "total": 60,
+            "left":58
+        }
+    }
+}
