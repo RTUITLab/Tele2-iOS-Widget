@@ -11,7 +11,7 @@ import SwiftUI
 struct Tele2_WidgetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OffersPage()
                 .statusBar(hidden: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
                 .preferredColorScheme(.dark)
         }
@@ -23,6 +23,6 @@ struct Tele2_WidgetApp_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             
-            .previewDevice("iPhone 11 Pro Max")/*@END_MENU_TOKEN@*/
+            .previewDevice("iPhone 11 Pro Max")
     }
 }
