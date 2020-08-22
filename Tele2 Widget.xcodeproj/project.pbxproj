@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E606771924F0A37400A62F96 /* MobileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771824F0A37400A62F96 /* MobileState.swift */; };
+		E606771A24F0A37400A62F96 /* MobileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771824F0A37400A62F96 /* MobileState.swift */; };
+		E606771C24F0A46300A62F96 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771B24F0A46300A62F96 /* Models.swift */; };
+		E606771D24F0A46300A62F96 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E606771B24F0A46300A62F96 /* Models.swift */; };
 		E630CDD024F097CF00A815EF /* ShopAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CDCF24F097CF00A815EF /* ShopAd.swift */; };
 		E630CDD124F097CF00A815EF /* ShopAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E630CDCF24F097CF00A815EF /* ShopAd.swift */; };
 		E6AACDB624F02CA7005C810D /* Tele2_WidgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDB524F02CA7005C810D /* Tele2_WidgetApp.swift */; };
@@ -47,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E606771824F0A37400A62F96 /* MobileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileState.swift; sourceTree = "<group>"; };
+		E606771B24F0A46300A62F96 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		E630CDCF24F097CF00A815EF /* ShopAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAd.swift; sourceTree = "<group>"; };
 		E6AACDB224F02CA7005C810D /* Tele2 Widget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tele2 Widget.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6AACDB524F02CA7005C810D /* Tele2_WidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tele2_WidgetApp.swift; sourceTree = "<group>"; };
@@ -134,11 +140,13 @@
 		E6AACDCE24F02D6C005C810D /* State */ = {
 			isa = PBXGroup;
 			children = (
-				E6AACDCF24F02D6C005C810D /* State.swift */,
+				E606771B24F0A46300A62F96 /* Models.swift */,
 				E6AACDD124F02D6C005C810D /* State.intentdefinition */,
 				E6AACDD224F02D77005C810D /* Assets.xcassets */,
 				E6AACDD424F02D77005C810D /* Info.plist */,
 				E630CDCF24F097CF00A815EF /* ShopAd.swift */,
+				E606771824F0A37400A62F96 /* MobileState.swift */,
+				E6AACDCF24F02D6C005C810D /* State.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -244,7 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6AACDB824F02CA7005C810D /* ContentView.swift in Sources */,
+				E606771924F0A37400A62F96 /* MobileState.swift in Sources */,
 				E6AACDD624F02D77005C810D /* State.intentdefinition in Sources */,
+				E606771C24F0A46300A62F96 /* Models.swift in Sources */,
 				E630CDD024F097CF00A815EF /* ShopAd.swift in Sources */,
 				E6AACDB624F02CA7005C810D /* Tele2_WidgetApp.swift in Sources */,
 			);
@@ -255,8 +265,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E630CDD124F097CF00A815EF /* ShopAd.swift in Sources */,
+				E606771A24F0A37400A62F96 /* MobileState.swift in Sources */,
 				E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */,
 				E6AACDD024F02D6C005C810D /* State.swift in Sources */,
+				E606771D24F0A46300A62F96 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

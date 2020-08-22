@@ -8,12 +8,6 @@
 import WidgetKit
 import SwiftUI
 
-struct Commit {
-    let messager: String
-    let author: String
-    let date: String
-}
-
 struct CommitLoader {
     static func fetch(completion: @escaping(Result<Commit, Error>) -> Void) {
         let branchContentsURL = URL(string: "https://api.github.com/repos/RTUITLab/ITLab/branches/master")!
@@ -70,10 +64,7 @@ struct CommitTimeline: TimelineProvider {
     }
 }
 
-struct LastCommitEntry: TimelineEntry {
-    public let date: Date
-    public let commit: Commit
-}
+
 
 struct ProgressBar: View {
     var counter: Int
@@ -109,58 +100,6 @@ struct ProgressBar: View {
     }
 }
 
-struct SmallRectStatus: View {
-    let entry: LastCommitEntry
-    @Environment(\.widgetFamily) var family
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            
-            VStack(content: {
-                Image("logoT2")
-                    .resizable()
-                    .frame(width: 53, height: 20)
-            })
-            .frame(width: 70, height: 20, alignment: .bottom)
-            
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-                Text("Placeholder")
-            })
-            Text("Lastest Commit")
-                .font(.system(.title3))
-                .foregroundColor(.black)
-            Text(entry.commit.messager)
-                .font(.system(.callout))
-                .foregroundColor(.black)
-                .bold()
-            Text("by \(entry.commit.author) at \(entry.commit.date)")
-                .font(.system(.caption))
-                .foregroundColor(.black)
-            Text("Updated at \(Self.format(date:entry.date))")
-                .font(.system(.caption2))
-                .foregroundColor(.black)
-        }
-    }
-    func progressWidth() -> Float {
-        switch family{
-        case .systemSmall:
-            return 4
-        case .systemMedium:
-            return 4
-        default:
-            return 12
-        }
-    }
-
-    static func format(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy HH:mm"
-        return formatter.string(from: date)
-    }
-}
-
-
-
 struct CommitCheckerWidgetView: View {
     let entry: LastCommitEntry
     
@@ -171,10 +110,10 @@ struct CommitCheckerWidgetView: View {
         VStack(alignment: .leading) {
             switch family{
             case .systemSmall:
-                SmallRectStatus(entry: entry)
+                MobileState(entry: entry, family: family)
             case .systemMedium:
                 HStack(content: {
-                    SmallRectStatus(entry: entry)
+                    MobileState(entry: entry, family: family)
                     Spacer()
                     ShopAd()
                 })
