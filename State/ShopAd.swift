@@ -9,26 +9,29 @@ import WidgetKit
 import SwiftUI
 
 struct ShopAd: View {
+    var giftIndicatorType: String
+
     var body: some View {
         HStack {
             VStack(alignment: .center){
                 VStack(alignment: .center){
                     
-                HStack(alignment: .center){
-                    Text ("Недалеко от Вас")
-                        .font(Font.custom("SF Ui Display", size: 11))
-                        .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
-                        .multilineTextAlignment(.center)
-                        .padding([.top, .leading, .trailing])
-                                           
-                    
-                }
+                    HStack(alignment: .center){
+                        
+                        Text ("Недалеко от Вас")
+                            .font(Font.custom("SF Ui Display", size: 11))
+                            .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
+                            .multilineTextAlignment(.center)
+                        GiftIndicator(type: giftIndicatorType)
+                        
+                    }
+                    .padding([.top])
                     Image("adamas")
                         .resizable()
                         .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                         .frame(width:45, height:45)
                         .padding(.top, 1.0)
-                            
+                    
                     
                 }
                 
@@ -84,7 +87,7 @@ struct ShopAd: View {
 
 struct ShopAd_Previews: PreviewProvider {
     static var previews: some View {
-        ShopAd()
+        ShopAd(giftIndicatorType: "offer")
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
             .padding()
             .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))

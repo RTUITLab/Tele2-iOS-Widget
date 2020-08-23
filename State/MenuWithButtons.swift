@@ -9,14 +9,12 @@ import WidgetKit
 import SwiftUI
 
 struct MenuWithButtons: View {
+    var giftIndicatorType: String
     var body: some View {
         HStack {
             ZStack {
                 
-                Circle()
-                    .fill(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
-                    
-                    .frame(width:9, height:9)
+                GiftIndicator(type: giftIndicatorType)
                     
                     .padding([.top, .leading])
                     .offset(x: 50, y: -70)
@@ -76,7 +74,7 @@ struct MenuWithButtons: View {
 
 struct MenuWithButtons_Previews: PreviewProvider {
     static var previews: some View {
-        MenuWithButtons()
+        MenuWithButtons(giftIndicatorType: "none")
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
             .padding()
             .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))

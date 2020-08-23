@@ -39,6 +39,7 @@ struct WidgetSettings {
 struct ModelEntry {
     public let limits: Limits
     public let settings: WidgetSettings
+    public let offer: String
 }
 
 struct LastLimitsEntry: TimelineEntry {
@@ -55,4 +56,5 @@ let exampleLastLimitsEntry = LastLimitsEntry (date: Date(),
                                                 minutes: Limit(total: 100, left: 20),
                                                 data: Limit(total: 328, left: 123) ,
                                                 sms:Limit(total: 200, left: 60)),
-                                               settings: WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "quick")))
+                                               settings: WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "quick"),
+                                                offer: "weekly"))
