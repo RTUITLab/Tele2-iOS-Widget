@@ -31,6 +31,19 @@ struct LimitsLoader {
         task.resume()
     }
     
+    static func updateWidgetSettings(completion: @escaping(Result<Int, Error>) -> Void, settings: WidgetSettings) {
+        let branchContentsURL = URL(string: "https://35f5d8bc8dc9.ngrok.io/api/widgetapi/widget/\(settings.smallType)/\(settings.mediumLeftType)/\(settings.mediumRightType)")!
+        let task = URLSession.shared.dataTask(with: branchContentsURL) {
+            (data, response, error) in
+            guard error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            completion(.success(0))
+        }
+        task.resume()
+    }
+    
     static func getCommitInfo(fromData data: Foundation.Data) throws -> ModelEntry {
         let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
         

@@ -63,6 +63,7 @@ struct WidgetSetting: View {
     @ObservedObject var viewRouter: ViewRouter
     @State var settings: WidgetSettings = WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "offer")
     
+    
     var body: some View {
         ScrollView(content: {
             
@@ -344,6 +345,9 @@ struct WidgetSetting: View {
     func small(id: String, isMarked: Bool)
     {
         self.settings = WidgetSettings(smallType: id, mediumLeftType: settings.mediumLeftType,mediumRightType: settings.mediumRightType)
+        LimitsLoader.updateWidgetSettings(completion: { result in
+            WidgetCenter.shared.reloadAllTimelines()
+        }, settings: self.settings)
     }
     
     func setSettingsLeft(id: String, isMarked: Bool)
@@ -363,7 +367,9 @@ struct WidgetSetting: View {
         } else {
             self.settings = WidgetSettings(smallType: settings.smallType, mediumLeftType: settings.mediumLeftType, mediumRightType: id)
         }
-        
+        LimitsLoader.updateWidgetSettings(completion: { result in
+            WidgetCenter.shared.reloadAllTimelines()
+        }, settings: self.settings)
     }
     func isMarked(id: String, side: String = "left") -> Bool {
         if(viewRouter.currentPage == "Small")
@@ -379,6 +385,7 @@ struct WidgetSetting: View {
         return false
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
