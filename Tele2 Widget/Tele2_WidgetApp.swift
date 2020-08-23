@@ -15,22 +15,35 @@ extension View {
 
 @main
 struct Tele2_WidgetApp: App {
-    @State var isOffer: Bool = false;
+    @State var url: URL?;
     var body: some Scene {
         WindowGroup {
-            if (isOffer) {
-                OffersPage()
-                    .onOpenURL(perform: { url in
-                        isOffer = url == URL(string: "realityshift:///adamas")!
-                    })
-            } else {
-            ContentView()
-                .statusBar(hidden: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
-                .preferredColorScheme(.dark)
-                .onOpenURL(perform: { url in
-                    isOffer = url == URL(string: "realityshift:///adamas")!
-                })
+            VStack {
+                switch url {
+                case adamasURL:
+                    OffersPage()
+                case tarifURL:
+                    Image("tarifBack")
+                        .resizable()
+                        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                        .statusBar(hidden: true)
+                case balanceURL:
+                    Image("payT2Back")
+                        .resizable()
+                        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                        .statusBar(hidden: true)
+                default:
+                    ContentView()
+                        .statusBar(hidden: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
+                        .preferredColorScheme(.dark)
+                }
+                
             }
+            .onOpenURL(perform: { url in
+                self.url = url
+            })
+            
+            
         }
         
     }

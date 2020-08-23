@@ -19,7 +19,8 @@ struct MenuWithButtons: View {
                     .padding([.top, .leading])
                     .offset(x: 50, y: -70)
                 VStack{
-                    
+                    Link(destination: balanceURL, label: {
+
                     ZStack(content: {
                         Rectangle()
                             .fill(Color.white)
@@ -35,21 +36,25 @@ struct MenuWithButtons: View {
                             .bold()
                     })
                     .padding(.vertical, 2)
-                    ZStack(content: {
-                        Rectangle()
-                            .fill(Color.white)
-                            .frame(width: 138, height: 25)
-                            .cornerRadius(12.5)
-                        Rectangle()
-                            .fill(Color(red: 28 / 255, green: 28 / 255, blue: 30 / 255))
-                            .frame(width: 133, height: 20)
-                            .cornerRadius(10)
-                        Text("Купить")
-                            .font(Font.custom("SF Ui Display", size: 11))
-                            .foregroundColor(.white)
-                            .bold()
                     })
-                    .padding(.vertical, 2)
+                    Link(destination: tarifURL, label: {
+                        ZStack(content: {
+                            Rectangle()
+                                .fill(Color.white)
+                                .frame(width: 138, height: 25)
+                                .cornerRadius(12.5)
+                            Rectangle()
+                                .fill(Color(red: 28 / 255, green: 28 / 255, blue: 30 / 255))
+                                .frame(width: 133, height: 20)
+                                .cornerRadius(10)
+                            Text("Услуги")
+                                .font(Font.custom("SF Ui Display", size: 11))
+                                .foregroundColor(.white)
+                                .bold()
+                        })
+                        .padding(.vertical, 2)
+                    })
+                    
                     ZStack(content: {
                         Rectangle()
                             .fill(Color.white)
