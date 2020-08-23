@@ -60,7 +60,8 @@ struct LimitsLoader {
 
         let mediumRightType = settingsObject["mediumRightType"] as! String
 
+        let offer = json["offer"] as! String
 
-        return ModelEntry(limits: Limits(phone: phone, balance: balance, minutes: Limit(total: minTotal, left: minLeft), data: Limit(total: dataTotal, left: dataLeft), sms: Limit(total: smsTotal, left: smsLeft)), settings: WidgetSettings(smallType: smallType, mediumLeftType: mediumLeftType, mediumRightType: mediumRightType))
+        return ModelEntry(limits: Limits(phone: phone, balance: balance, minutes: Limit(total: minTotal, left: minLeft), data: Limit(total: dataTotal, left: dataLeft), sms: Limit(total: smsTotal, left: smsLeft)), settings: WidgetSettings(smallType: smallType, mediumLeftType: mediumLeftType, mediumRightType: mediumRightType), offer: offer)
     }
 }

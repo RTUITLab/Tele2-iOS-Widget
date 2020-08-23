@@ -138,7 +138,7 @@ struct WidgetSetting: View {
                     
                     
                 
-                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: exampleLastLimitsEntry.entry.settings, family: .systemSmall)
+                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: exampleLastLimitsEntry.entry.settings, family: .systemSmall, giftIndicatorType: "offer")
                         
                         .frame(width: 155, height: 155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
@@ -155,8 +155,7 @@ struct WidgetSetting: View {
                     
                     LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
                         .overlay(RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.white, lineWidth: 5.0))
-                    
+                                    .stroke(Color.white, lineWidth: 5.0))                  
                     
                     
                 })
@@ -167,8 +166,8 @@ struct WidgetSetting: View {
             {
                 
                 HStack(content: {
-                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: exampleLastLimitsEntry.entry.settings, family: .systemSmall)
-                    ShopAd()
+                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: exampleLastLimitsEntry.entry.settings, family: .systemSmall, giftIndicatorType: "offer")
+                    ShopAd(giftIndicatorType: "offer")
                         .layoutPriority(1)
                 })
                 .frame(width: 360, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
