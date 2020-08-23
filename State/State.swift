@@ -48,15 +48,10 @@ struct CommitCheckerWidgetView: View {
         VStack() {
             switch family{
             case .systemSmall:
-                WraperSmall(limits: entry.entry.limits, widgetSettings: entry.entry.settings, family: family)
+                WraperSmall(limits: entry.entry.limits, widgetSettings: entry.entry.settings, family: family, giftIndicatorType: entry.entry.offer)
             case .systemMedium:
-                HStack(content: {
-                    MobileState(family: family, entry: self.entry.entry.limits)
-                        .scaledToFit()
-                    ShopAd()
-                        .layoutPriority(1)
-                })
-                .padding(6.0)
+                WraperMedium(limits: entry.entry.limits, widgetSettings: entry.entry.settings, offer: entry.entry.offer)
+                    .padding(6)
                 
             default:
                 LargeCombined(family: family, entry: self.entry.entry.limits)
@@ -100,13 +95,13 @@ struct State_PreviewsLarge: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Medium and adamas")
             
-            CommitCheckerWidgetView(entry: LastLimitsEntry(date: Date(), entry: ModelEntry(limits: exampleLastLimitsEntry.entry.limits, settings: WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "quick"))))
+            CommitCheckerWidgetView(entry: LastLimitsEntry(date: Date(), entry: ModelEntry(limits: exampleLastLimitsEntry.entry.limits, settings: WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "quick"), offer: "weekly")))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraLarge)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Small")
             
-            CommitCheckerWidgetView(entry: LastLimitsEntry(date: Date(), entry: ModelEntry(limits: exampleLastLimitsEntry.entry.limits, settings: WidgetSettings(smallType: "quick", mediumLeftType: "ad", mediumRightType: "quick"))))
+            CommitCheckerWidgetView(entry: LastLimitsEntry(date: Date(), entry: ModelEntry(limits: exampleLastLimitsEntry.entry.limits, settings: WidgetSettings(smallType: "quick", mediumLeftType: "ad", mediumRightType: "quick"), offer: "weekly")))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraLarge)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
