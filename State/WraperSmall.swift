@@ -26,6 +26,7 @@ struct WraperSmall: View {
                 ShopAd(giftIndicatorType: giftIndicatorType)
             default:
                 Text("incorrect state setting")
+                    .foregroundColor(Color.white)
             }
         }
     }

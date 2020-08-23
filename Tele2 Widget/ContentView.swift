@@ -13,11 +13,11 @@ import WidgetKit
 class ViewRouter: ObservableObject {
     let objectWillChange = PassthroughSubject<ViewRouter,Never>()
     
-    var currentPage: String = "Small" {
+    var currentPage: String = "Medium" {
         didSet {
             objectWillChange.send(self)
         }
-}
+    }
 }
 
 struct ContentView: View {
@@ -44,7 +44,7 @@ struct ContentView: View {
                         WidgetSetting(viewRouter: ViewRouter())
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .top)
                             .edgesIgnoringSafeArea(.bottom)
-//                            .background(Color.white)
+                        //                            .background(Color.white)
                         
                         
                     })
@@ -72,25 +72,25 @@ struct WidgetSetting: View {
                 .foregroundColor(Color.white)
             
             HStack(content: {
-            Button(action: {
-                self.viewRouter.currentPage = "Small"
-            }) {
-                VStack(alignment: .center){
-                    Text("Маленький")
-                        .font(Font.custom("SF Ui Display", size: 15))
-                        .bold()
-                        .font(.footnote)
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.center)
+                Button(action: {
+                    self.viewRouter.currentPage = "Small"
+                }) {
+                    VStack(alignment: .center){
+                        Text("Маленький")
+                            .font(Font.custom("SF Ui Display", size: 15))
+                            .bold()
+                            .font(.footnote)
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.center)
+                    }
+                    .frame(width: 100,height:20)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.white)
+                    
+                    
+                    .cornerRadius(25)
                 }
-                .frame(width: 100,height:20)
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.white)
-                
-                
-                .cornerRadius(25)
-            }
                 Button(action: {
                     self.viewRouter.currentPage = "Medium"
                 }) {
@@ -134,91 +134,188 @@ struct WidgetSetting: View {
             .padding(.bottom, 30.0)
             
             VStack(content: {
-            if (viewRouter.currentPage == "Small"){
-                VStack(content: {
-                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: settings, family: .systemSmall, giftIndicatorType: "offer")
+                if (viewRouter.currentPage == "Small"){
+                    VStack(content: {
+                        WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: settings, family: .systemSmall, giftIndicatorType: "offer")
+                            
+                            .frame(width: 155, height: 155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
-                        .frame(width: 155, height: 155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    })
                     
-                })
+                    
+                    .frame(width: 169, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.white, lineWidth: 5.0))
+                } else if (viewRouter.currentPage == "Large")
+                {
+                    VStack(content: {
+                        
+                        
+                        LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
+                            .overlay(RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.white, lineWidth: 5.0))
+                        
+                        
+                    })
+                    .frame(width: 360, height: 379, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(.black)
+                    
+                } else if (viewRouter.currentPage == "Medium")
+                {
+                    
+                    HStack(content: {
+                        WraperMedium(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: settings, offer: "offer")
+                        
+                    })
+                    .frame(width: 360, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(6.0)
+                    .overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.white, lineWidth: 5.0))
+                }
                 
-                
-                .frame(width: 169, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .overlay(RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white, lineWidth: 5.0))
-            } else if (viewRouter.currentPage == "Large")
-            {
-                VStack(content: {
-                    
-                    
-                    LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
-                        .overlay(RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color.white, lineWidth: 5.0))                  
-                    
-                    
-                })
-                .frame(width: 360, height: 379, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(.black)
-                
-            } else if (viewRouter.currentPage == "Medium")
-            {
-                
-                HStack(content: {
-                    WraperMedium(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: settings, offer: "offer")
-                    
-                })
-                .frame(width: 360, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .padding(6.0)
-                .overlay(RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.white, lineWidth: 5.0))
-            }
-            
             })
             .padding(.bottom)
             
             Text("Выберите").foregroundColor(Color.white) + Text(viewRouter.currentPage == "Small" ? " 1 " : " 2 ").foregroundColor(Color(red: 1.0, green: 0.26666666666666666, blue: 0.6470588235294118)) + Text((viewRouter.currentPage == "Small" ? "опцию" : "опции") + " (сейчас выбрана по умолчанию):").foregroundColor(Color.white)
-           
+            
             Spacer()
             
-            VStack(){
-            CheckboxField(
-                id: "ad",
-                label: "Остаток по пакетам",
-                size: 20,
-                textSize: 14,
-                callback: test,
-                isMarked: settings.smallType == "ad"
-            )
-                CheckboxField(
-                    id: Gender.male.rawValue,
-                    label: "Информация о подарках",
-                    size: 20,
-                    textSize: 14,
-                    callback: test
-                )
-                
-                CheckboxField(
-                    id: "offer",
-                    label: "Личные предложения",
-                    size: 20,
-                    textSize: 14,
-                    callback: test,
-                    isMarked: settings.smallType == "offer"
-                )
-                
-                CheckboxField(
-                    id: "quick",
-                    label: "Быстрые действия",
-                    size: 20,
-                    textSize: 14,
-                    callback: test,
-                    isMarked: settings.smallType == "quick"
-                )
-            }
-            .padding()
-                
+            if(viewRouter.currentPage == "Medium")
+            {
+                HStack(){
+                    VStack()
+                    {
+                        CheckboxField(
+                            id: "ad",
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsLeft,
+                            isMarked: isMarked(id: "ad")
+                        )
+                        CheckboxField(
+                            id: Gender.male.rawValue,
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsLeft
+                        )
+                        
+                        CheckboxField(
+                            id: "offer",
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsLeft,
+                            isMarked: isMarked(id: "offer")
+                        )
+                        
+                        CheckboxField(
+                            id: "quick",
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsLeft,
+                            isMarked: isMarked(id: "quick")
+                        )
+                    }
                     
-         
+                    VStack()
+                    {
+                        Text("Остаток по пакетам")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: 25))
+                        Text("Информация о подарках")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: 25))
+                        Text("Личные предложения")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: 25))
+                        Text("Быстрые действия")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(size: 25))
+                    }
+                    
+                    VStack()
+                    {
+                        CheckboxField(
+                            id: "ad",
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsRight,
+                            isMarked: isMarked(id: "ad", side: "right")
+                        )
+                        CheckboxField(
+                            id: Gender.male.rawValue,
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsRight
+                        )
+                        
+                        CheckboxField(
+                            id: "offer",
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsRight,
+                            isMarked: isMarked(id: "offer", side: "right")
+                        )
+                        
+                        CheckboxField(
+                            id: "quick",
+                            label: "",
+                            size: 25,
+                            textSize: 14,
+                            callback: setSettingsRight,
+                            isMarked: isMarked(id: "quick", side: "right")
+                        )
+                    }
+                    
+                    
+                }
+            }
+            else {
+                VStack(alignment: .leading){
+                    CheckboxField(
+                        id: "ad",
+                        label: "Остаток по пакетам",
+                        size: 20,
+                        textSize: 14,
+                        callback: small,
+                        isMarked: isMarked(id: "ad")
+                    )
+                    CheckboxField(
+                        id: Gender.male.rawValue,
+                        label: "Информация о подарках",
+                        size: 20,
+                        textSize: 14,
+                        callback: small
+                    )
+                    
+                    CheckboxField(
+                        id: "offer",
+                        label: "Личные предложения",
+                        size: 20,
+                        textSize: 14,
+                        callback: small,
+                        isMarked: isMarked(id: "offer")
+                    )
+                    
+                    CheckboxField(
+                        id: "quick",
+                        label: "Быстрые действия",
+                        size: 20,
+                        textSize: 14,
+                        callback: small,
+                        isMarked: isMarked(id: "quick")
+                    )
+                }
+                .padding()
+            }
+            
+            
             
             Button(action: {
                 WidgetCenter.shared.reloadAllTimelines()
@@ -244,13 +341,42 @@ struct WidgetSetting: View {
         .padding(.bottom, 20.0)
     }
     
-    
-    func test (id: String, isMarked: Bool)
+    func small(id: String, isMarked: Bool)
     {
+        self.settings = WidgetSettings(smallType: id, mediumLeftType: settings.mediumLeftType,mediumRightType: settings.mediumRightType)
+    }
+    
+    func setSettingsLeft(id: String, isMarked: Bool)
+    {
+        setSettings(id: id, isMarked: isMarked, side: "left")
+    }
+    func setSettingsRight(id: String, isMarked: Bool)
+    {
+        setSettings(id: id, isMarked: isMarked, side: "right")
+    }
+    
+    func setSettings (id: String, isMarked: Bool, side: String)
+    {
+        if (side == "left")
+        {
+            self.settings = WidgetSettings(smallType: settings.smallType, mediumLeftType: id, mediumRightType: settings.mediumRightType)
+        } else {
+            self.settings = WidgetSettings(smallType: settings.smallType, mediumLeftType: settings.mediumLeftType, mediumRightType: id)
+        }
+        
+    }
+    func isMarked(id: String, side: String = "left") -> Bool {
         if(viewRouter.currentPage == "Small")
         {
-            self.settings = WidgetSettings(smallType: id, mediumLeftType: settings.mediumLeftType, mediumRightType: settings.mediumRightType)
+            return id == settings.smallType
+        } else if(viewRouter.currentPage == "Medium") {
+            if (side == "left") {
+                return id == settings.mediumLeftType
+            }
+            
+            return id == settings.mediumRightType
         }
+        return false
     }
 }
 
