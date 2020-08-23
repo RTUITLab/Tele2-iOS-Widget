@@ -8,3 +8,5 @@
 import Foundation
 
 let adamasURL =  URL(string: "realityshift:///adamas")!
+let tarifURL =  URL(string: "realityshift:///tarif")!
+let balanceURL =  URL(string: "realityshift:///balance")!
