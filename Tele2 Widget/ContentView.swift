@@ -10,15 +10,6 @@ import Foundation
 import Combine
 import WidgetKit
 
-class ViewRouter: ObservableObject {
-    let objectWillChange = PassthroughSubject<ViewRouter,Never>()
-    
-    var currentPage: String = "Medium" {
-        didSet {
-            objectWillChange.send(self)
-        }
-    }
-}
 
 struct ContentView: View {
     
@@ -41,7 +32,7 @@ struct ContentView: View {
                             .padding(.bottom, 40.0)
                         
                         
-                        WidgetSetting(viewRouter: ViewRouter())
+                        WidgetSetting()
                             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .top)
                             .edgesIgnoringSafeArea(.bottom)
                         //                            .background(Color.white)
@@ -60,13 +51,11 @@ struct ContentView: View {
 
 struct WidgetSetting: View {
     
-    @ObservedObject var viewRouter: ViewRouter
     @State var settings: WidgetSettings = WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "offer")
     @State private var selectorIndex = 0
-       @State private var numbers = ["Маленький","Средний","Большой"]
-    init(viewRouter: ViewRouter)
+    @State private var numbers = ["Маленький","Средний","Большой"]
+    init()
     {
-        self.viewRouter = viewRouter
         UISegmentedControl.appearance().selectedSegmentTintColor = .white
 
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
@@ -133,7 +122,7 @@ struct WidgetSetting: View {
             })
             .padding(.bottom)
             
-            Text("Выберите").foregroundColor(Color.white) + Text(viewRouter.currentPage == "Small" ? " 1 " : " 2 ").foregroundColor(Color(red: 1.0, green: 0.26666666666666666, blue: 0.6470588235294118)) + Text((viewRouter.currentPage == "Small" ? "опцию" : "опции") + " (сейчас выбрана по умолчанию):").foregroundColor(Color.white)
+            Text("Выберите").foregroundColor(Color.white) + Text(selectorIndex == 0 ? " 1 " : " 2 ").foregroundColor(Color(red: 1.0, green: 0.26666666666666666, blue: 0.6470588235294118)) + Text((selectorIndex == 0 ? "опцию" : "опции") + " (сейчас выбрана по умолчанию):").foregroundColor(Color.white)
             
             Spacer()
             
