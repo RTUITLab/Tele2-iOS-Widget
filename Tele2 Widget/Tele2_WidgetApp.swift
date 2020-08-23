@@ -21,14 +21,14 @@ struct Tele2_WidgetApp: App {
             if (isOffer) {
                 OffersPage()
                     .onOpenURL(perform: { url in
-                        isOffer = url == URL(string: "realityshift:///adamas")!
+                        isOffer = url == adamasURL
                     })
             } else {
             ContentView()
                 .statusBar(hidden: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
                 .preferredColorScheme(.dark)
                 .onOpenURL(perform: { url in
-                    isOffer = url == URL(string: "realityshift:///adamas")!
+                    isOffer = url == adamasURL
                 })
             }
         }
