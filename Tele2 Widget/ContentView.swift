@@ -65,13 +65,18 @@ struct WidgetSetting: View {
     var body: some View {
         VStack(content: {
             
+            Text("Размер виджета")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
+            
             HStack(content: {
             Button(action: {
                 self.viewRouter.currentPage = "Small"
             }) {
                 VStack(alignment: .center){
-                    Text("Small")
-                        .font(Font.custom("SF Ui Display", size: 20))
+                    Text("Маленький")
+                        .font(Font.custom("SF Ui Display", size: 15))
                         .bold()
                         .font(.footnote)
                         .foregroundColor(.black)
@@ -80,7 +85,7 @@ struct WidgetSetting: View {
                 .frame(width: 100,height:20)
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.yellow)
+                .background(Color.white)
                 
                 
                 .cornerRadius(25)
@@ -89,8 +94,8 @@ struct WidgetSetting: View {
                     self.viewRouter.currentPage = "Medium"
                 }) {
                     VStack(alignment: .center){
-                        Text("Medium")
-                            .font(Font.custom("SF Ui Display", size: 20))
+                        Text("Средний")
+                            .font(Font.custom("SF Ui Display", size: 15))
                             .bold()
                             .font(.footnote)
                             .foregroundColor(.black)
@@ -99,7 +104,7 @@ struct WidgetSetting: View {
                     .frame(width: 100,height:20)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.yellow)
+                    .background(Color.white)
                     
                     
                     .cornerRadius(25)
@@ -108,8 +113,8 @@ struct WidgetSetting: View {
                     self.viewRouter.currentPage = "Large"
                 }) {
                     VStack(alignment: .center){
-                        Text("Large")
-                            .font(Font.custom("SF Ui Display", size: 20))
+                        Text("Большой")
+                            .font(Font.custom("SF Ui Display", size: 15))
                             .bold()
                             .font(.footnote)
                             .foregroundColor(.black)
@@ -118,14 +123,16 @@ struct WidgetSetting: View {
                     .frame(width: 100,height:20)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.yellow)
+                    .background(Color.white)
                     
                     
                     .cornerRadius(25)
                 }
             })
-            .padding()
+            .padding(.top)
+            .padding(.bottom, 30.0)
             
+            VStack(content: {
             if (viewRouter.currentPage == "Small"){
                 VStack(content: {
                     
@@ -171,7 +178,8 @@ struct WidgetSetting: View {
                             .stroke(Color.white, lineWidth: 5.0))
             }
             
-            
+            })
+            .padding(.bottom)
             Spacer()
             
             Button(action: {
@@ -188,7 +196,7 @@ struct WidgetSetting: View {
                 .frame(width: 100,height:20)
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.yellow)
+                .background(Color.white)
                 
                 
                 .cornerRadius(25)
