@@ -10,11 +10,12 @@ import SwiftUI
 
 struct Large: View {
     var family : WidgetFamily
-    var entry: LastLimitsEntry
+    var entry: Limits
     var body: some View {
         
         VStack(alignment: .leading,spacing: 4) {
-            
+            Text(UserDefaults.standard.string(forKey: "sampleKey") ?? "nil")
+                .foregroundColor(.white)
             HStack(content: {
                 VStack(content: {
                     Image("logoT2")
@@ -33,7 +34,7 @@ struct Large: View {
                         .bold()
                         .foregroundColor(.white)
                         .allowsTightening(true)
-                    Text(self.entry.limits.phone)
+                    Text(self.entry.phone)
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .allowsTightening(true)
@@ -45,7 +46,7 @@ struct Large: View {
                         .font(.subheadline)
                         .foregroundColor(.white)
                         .allowsTightening(true)
-                    Text("\(self.entry.limits.balance) ₽")
+                    Text("\(self.entry.balance) ₽")
                         .font(.subheadline)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -67,13 +68,13 @@ struct Large: View {
                     .foregroundColor(.white)
                     .allowsTightening(true)
                 Spacer()
-                Text("\(self.entry.limits.minutes.left)/\(self.entry.limits.minutes.total) минут")
+                Text("\(self.entry.minutes.left)/\(self.entry.minutes.total) минут")
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
             
-            ProgressBarHorizontal(counter: self.entry.limits.minutes.left, countTo: self.entry.limits.minutes.total).frame(height: 4)
+            ProgressBarHorizontal(counter: self.entry.minutes.left, countTo: self.entry.minutes.total).frame(height: 4)
                         
             HStack(content: {
                 Text("Интернет")
@@ -81,13 +82,13 @@ struct Large: View {
                     .foregroundColor(.white)
                     .allowsTightening(true)
                 Spacer()
-                Text("\(self.entry.limits.data.left)/\(self.entry.limits.data.total) Гб")
+                Text("\(self.entry.data.left)/\(self.entry.data.total) Гб")
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
             
-            ProgressBarHorizontal(counter: self.entry.limits.data.left, countTo: self.entry.limits.data.total).frame(height: 4)
+            ProgressBarHorizontal(counter: self.entry.data.left, countTo: self.entry.data.total).frame(height: 4)
             
             HStack(content: {
                 Text("Сообщения")
@@ -95,13 +96,13 @@ struct Large: View {
                     .foregroundColor(.white)
                     .allowsTightening(true)
                 Spacer()
-                Text("\(self.entry.limits.sms.left)/\(self.entry.limits.sms.total) сообщений")
+                Text("\(self.entry.sms.left)/\(self.entry.sms.total) сообщений")
                     .font(.subheadline)
                     .foregroundColor(.white)
                     .allowsTightening(true)
             })
             
-            ProgressBarHorizontal(counter: self.entry.limits.sms.left, countTo: self.entry.limits.sms.total).frame(height: 4)
+            ProgressBarHorizontal(counter: self.entry.sms.left, countTo: self.entry.sms.total).frame(height: 4)
             
             
             //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
@@ -137,7 +138,7 @@ struct Large: View {
 struct Large_Previews: PreviewProvider {
     static var previews: some View {
         
-        Large(family: .systemLarge, entry: exampleLastLimitsEntry)
+        Large(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .environment(\.sizeCategory, .extraLarge)
             .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))

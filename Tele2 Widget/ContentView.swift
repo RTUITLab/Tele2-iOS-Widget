@@ -51,7 +51,7 @@ struct WidgetSetting: View {
             VStack(content: {
                 
                 
-                MobileState(family: .systemSmall, entry: exampleLastLimitsEntry)
+                MobileState(family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits)
                     
                     .frame(width: 149, height: 149, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
@@ -65,7 +65,7 @@ struct WidgetSetting: View {
             VStack(content: {
                 
                 
-                LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry)
+                LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
                     .overlay(RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.white, lineWidth: 5.0))
                 
