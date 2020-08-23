@@ -14,8 +14,6 @@ struct Large: View {
     var body: some View {
         
         VStack(alignment: .leading,spacing: 4) {
-            Text(UserDefaults.standard.string(forKey: "sampleKey") ?? "nil")
-                .foregroundColor(.white)
             HStack(content: {
                 VStack(content: {
                     Image("logoT2")
