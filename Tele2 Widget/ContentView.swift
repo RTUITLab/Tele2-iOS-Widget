@@ -152,7 +152,7 @@ struct WidgetSetting: View {
                     VStack(content: {
                         
                         
-                        LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
+                        LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits, giftIndicatorType: "offer")
                             .overlay(RoundedRectangle(cornerRadius: 20)
                                         .stroke(Color.white, lineWidth: 5.0))
                         
