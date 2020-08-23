@@ -17,55 +17,67 @@ struct MobileState: View {
             
             HStack(content: {
                 VStack(content: {
-                    Image("logoT2")
+                    Text(self.entry.limits.phone)
+                        .font(Font.custom("SF Ui Display", size: 10))
+                        .foregroundColor(.white)
+                        .padding(.trailing, 32.0)
+                        .allowsTightening(true)
+                        
                     //                        .resizable()
                     //                        .frame(width: 53, height: 20)
                 })
                 //                .frame(width: 50, height: 20, alignment: .bottom)
-                Spacer()
-                VStack(content: {
-                    Image("gift")
-                    //                        .resizable()
-                    //                        .frame(width: 21.0, height: 20.0)
-                })
+               
+             
             })
             .padding(.bottom, 10.0)
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Text(self.entry.limits.phone)
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-                    .allowsTightening(true)
-            })
+            
             .aspectRatio(contentMode: .fill)
             
             
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                Text("\(self.entry.limits.balance) ₽")
-                    .font(.subheadline)
+                HStack{
+                Text("Баланс: ")
+                    .font(Font.custom("SF Ui Display", size: 11))
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.leading)
+                    .padding([.bottom, .trailing])
+                    
+                    Text("\(self.entry.limits.balance) ₽")
+                    .font(Font.custom("SF Ui Display", size: 11))
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                        .foregroundColor(.white)
+                        .padding([.leading, .bottom])
+                }
+                .padding(.bottom, -9.0)
+                Text("До обновления 14 дней")
+                    .font(Font.custom("SF Ui Display", size: 11))
+                    .foregroundColor(.gray)
+                    .padding(.bottom, -3.0)
+            
             })
+                
             .padding(.bottom, 5.0)
             
             
             HStack(content: {
                 VStack(spacing: 5, content: {
                     Text("Мин")
-                        .font(.caption2)
+                        .font(Font.custom("SF Ui Display", size: 10))
                         .foregroundColor(Color.white)
                     ProgressBar(counter: self.entry.limits.minutes.left, countTo: self.entry.limits.minutes.total, width: progressWidth())
                 })
                 
                 VStack(spacing: 5, content: {
                     Text("Гб")
-                        .font(.caption2)
+                        .font(Font.custom("SF Ui Display", size: 10))
                         .foregroundColor(Color.white)
                     ProgressBar(counter: self.entry.limits.data.left, countTo: self.entry.limits.data.total, width: progressWidth())
                 })
                 
                 VStack(spacing: 5, content: {
                     Text("SMS")
-                        .font(.caption2)
+                        .font(Font.custom("SF Ui Display", size: 10))
                         .foregroundColor(Color.white)
                         .allowsTightening(true)
                     
