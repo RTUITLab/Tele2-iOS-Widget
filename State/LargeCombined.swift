@@ -11,10 +11,11 @@ import SwiftUI
 struct LargeCombined: View {
     var family : WidgetFamily
     var entry: Limits
+    var giftIndicatorType: String
     var body: some View {
         
         VStack(content: {
-            Large(family: family, entry: entry)
+            Large(family: family, entry: entry, giftIndicatorType: giftIndicatorType)
                 .padding(.top, 20)
                 .padding(.horizontal, 20)
             Spacer()
@@ -43,7 +44,7 @@ struct LargeCombined: View {
 struct LargeCombined_Previews: PreviewProvider {
     static var previews: some View {
         
-        LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
+        LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits,  giftIndicatorType: "weekly")
             .previewContext(WidgetPreviewContext(family: .systemLarge))
             .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)

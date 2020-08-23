@@ -14,20 +14,11 @@ struct LargeBottom1: View {
         
         VStack( content: {
             
-            Text ("Мы подобрали")
-                .font(.caption2)
+            Text ("Мы подобрали больше предложений для Вас:")
+                .font(Font.custom("SF Ui Display", size: 12))
                 .foregroundColor(.white)
-                .bold()
-                +
-            Text(" больше")
-                .font(.caption2)
-                .foregroundColor(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
-                .bold()
-                +
-            Text (" предложения для Вас")
-                .font(.caption2)
-                .foregroundColor(.white)
-                .bold()
+        
+           
             HStack(alignment: .center, content: {
                 VStack(content: {
                     Image("adamas")
@@ -35,9 +26,8 @@ struct LargeBottom1: View {
                         .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                         .frame(width:45, height:45)
                     Text("Подарок")
-                        .font(.caption2)
+                        .font(Font.custom("SF Ui Display", size: 12))
                         .foregroundColor(.white)
-                        .bold()
                 })
                 .padding(.leading, 50.0)
                 .padding(.trailing, 10)
@@ -48,9 +38,8 @@ struct LargeBottom1: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(width:45, height:45)
                     Text("Кэшбек 5%")
-                        .font(.caption2)
+                        .font(Font.custom("SF Ui Display", size: 12))
                         .foregroundColor(.white)
-                        .bold()
                 })
                 Spacer()
                 VStack(content: {
@@ -59,16 +48,15 @@ struct LargeBottom1: View {
                         .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                         .frame(width:45, height:45)
                     Text("Скидка 7,5%")
-                        .font(.caption2)
+                        .font(Font.custom("SF Ui Display", size: 12))
                         .foregroundColor(.white)
-                        .bold()
                 })
                 .padding(.trailing, 40)
-                .padding(.top, 5)
+               
             })
             Text ("Выберите предложение, чтобы посмотреть детали и активировать предложение.")
-                .font(.caption2)
-                .foregroundColor(.white)
+                .font(Font.custom("SF Ui Display", size: 8))
+                .foregroundColor(Color.gray)
                 .multilineTextAlignment(.center)
                 .padding(3)
         })

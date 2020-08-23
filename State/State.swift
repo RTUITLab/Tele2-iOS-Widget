@@ -54,7 +54,7 @@ struct CommitCheckerWidgetView: View {
                     .padding(6)
                 
             default:
-                LargeCombined(family: family, entry: self.entry.entry.limits)
+                LargeCombined(family: family, entry: self.entry.entry.limits, giftIndicatorType: entry.entry.offer)
             }
         }
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
