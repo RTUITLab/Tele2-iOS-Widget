@@ -63,15 +63,20 @@ struct WidgetSetting: View {
     @ObservedObject var viewRouter: ViewRouter
     
     var body: some View {
-        VStack(content: {
+        ScrollView(content: {
+            
+            Text("Размер виджета")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.white)
             
             HStack(content: {
             Button(action: {
                 self.viewRouter.currentPage = "Small"
             }) {
                 VStack(alignment: .center){
-                    Text("Small")
-                        .font(Font.custom("SF Ui Display", size: 20))
+                    Text("Маленький")
+                        .font(Font.custom("SF Ui Display", size: 15))
                         .bold()
                         .font(.footnote)
                         .foregroundColor(.black)
@@ -80,7 +85,7 @@ struct WidgetSetting: View {
                 .frame(width: 100,height:20)
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.yellow)
+                .background(Color.white)
                 
                 
                 .cornerRadius(25)
@@ -89,8 +94,8 @@ struct WidgetSetting: View {
                     self.viewRouter.currentPage = "Medium"
                 }) {
                     VStack(alignment: .center){
-                        Text("Medium")
-                            .font(Font.custom("SF Ui Display", size: 20))
+                        Text("Средний")
+                            .font(Font.custom("SF Ui Display", size: 15))
                             .bold()
                             .font(.footnote)
                             .foregroundColor(.black)
@@ -99,7 +104,7 @@ struct WidgetSetting: View {
                     .frame(width: 100,height:20)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.yellow)
+                    .background(Color.white)
                     
                     
                     .cornerRadius(25)
@@ -108,8 +113,8 @@ struct WidgetSetting: View {
                     self.viewRouter.currentPage = "Large"
                 }) {
                     VStack(alignment: .center){
-                        Text("Large")
-                            .font(Font.custom("SF Ui Display", size: 20))
+                        Text("Большой")
+                            .font(Font.custom("SF Ui Display", size: 15))
                             .bold()
                             .font(.footnote)
                             .foregroundColor(.black)
@@ -118,14 +123,16 @@ struct WidgetSetting: View {
                     .frame(width: 100,height:20)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.yellow)
+                    .background(Color.white)
                     
                     
                     .cornerRadius(25)
                 }
             })
-            .padding()
+            .padding(.top)
+            .padding(.bottom, 30.0)
             
+            VStack(content: {
             if (viewRouter.currentPage == "Small"){
                 VStack(content: {
                     
@@ -171,14 +178,26 @@ struct WidgetSetting: View {
                             .stroke(Color.white, lineWidth: 5.0))
             }
             
+            })
+//            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 360, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: 379, alignment: .top)
+            .padding(.bottom)
             
+            Text("Выберите").foregroundColor(Color.white) + Text(viewRouter.currentPage == "Small" ? " 1 " : " 2 ").foregroundColor(Color(red: 1.0, green: 0.26666666666666666, blue: 0.6470588235294118)) + Text((viewRouter.currentPage == "Small" ? "опцию" : "опции") + " (сейчас выбрана по умолчанию):").foregroundColor(Color.white)
+           
             Spacer()
+            
+            CheckboxField(id: "Test",
+                          label: "kek",
+                          size: 14,
+                          color: Color.white,
+                          textSize: 14,
+                          callback: test)
             
             Button(action: {
                 WidgetCenter.shared.reloadAllTimelines()
             }) {
                 VStack(alignment: .center){
-                    Text("Force reload")
+                    Text("Обновить")
                         .font(Font.custom("SF Ui Display", size: 15))
                         .bold()
                         .font(.footnote)
@@ -188,7 +207,7 @@ struct WidgetSetting: View {
                 .frame(width: 100,height:20)
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.yellow)
+                .background(Color.white)
                 
                 
                 .cornerRadius(25)
@@ -196,6 +215,12 @@ struct WidgetSetting: View {
             
         })
         .padding(.bottom, 20.0)
+    }
+    
+    
+    func test (id: String, isMarked: Bool)
+    {
+        
     }
 }
 
