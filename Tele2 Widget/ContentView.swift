@@ -130,7 +130,7 @@ struct WidgetSetting: View {
                     
                     
                 
-                    MobileState(family: .systemSmall, entry: exampleLastLimitsEntry)
+                    MobileState(family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits)
                         
                         .frame(width: 169, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
@@ -145,7 +145,7 @@ struct WidgetSetting: View {
                 VStack(content: {
                     
                     
-                    LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry)
+                    LargeCombined(family: .systemLarge, entry: exampleLastLimitsEntry.entry.limits)
                         .overlay(RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color.white, lineWidth: 5.0))
                     
@@ -159,7 +159,7 @@ struct WidgetSetting: View {
             {
                 
                 HStack(content: {
-                    MobileState(family: .systemSmall, entry: exampleLastLimitsEntry)
+                    MobileState(family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits)
                         .scaledToFit()
                     ShopAd()
                         .layoutPriority(1)

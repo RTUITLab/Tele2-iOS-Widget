@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+
+extension View {
+    
+    
+}
+
 @main
 struct Tele2_WidgetApp: App {
     var body: some Scene {
@@ -14,6 +20,9 @@ struct Tele2_WidgetApp: App {
             ContentView()
                 .statusBar(hidden: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
                 .preferredColorScheme(.dark)
+                .onOpenURL(perform: { url in
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                })
         }
         
     }
