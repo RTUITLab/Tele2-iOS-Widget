@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 import Combine
+import WidgetKit
 
 class ViewRouter: ObservableObject {
     let objectWillChange = PassthroughSubject<ViewRouter,Never>()
@@ -130,9 +131,9 @@ struct WidgetSetting: View {
                     
                     
                 
-                    MobileState(family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits)
+                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: exampleLastLimitsEntry.entry.settings, family: .systemSmall)
                         
-                        .frame(width: 169, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 155, height: 155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                 })
                 
@@ -170,7 +171,31 @@ struct WidgetSetting: View {
                             .stroke(Color.white, lineWidth: 5.0))
             }
             
+            
+            Spacer()
+            
+            Button(action: {
+                WidgetCenter.shared.reloadAllTimelines()
+            }) {
+                VStack(alignment: .center){
+                    Text("Force reload")
+                        .font(Font.custom("SF Ui Display", size: 15))
+                        .bold()
+                        .font(.footnote)
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(width: 100,height:20)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.yellow)
+                
+                
+                .cornerRadius(25)
+            }
+            
         })
+        .padding(.bottom, 20.0)
     }
 }
 
