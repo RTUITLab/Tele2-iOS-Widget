@@ -61,6 +61,7 @@ struct ContentView: View {
 struct WidgetSetting: View {
     
     @ObservedObject var viewRouter: ViewRouter
+    @State var settings: WidgetSettings = WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "offer")
     
     var body: some View {
         ScrollView(content: {
@@ -135,10 +136,7 @@ struct WidgetSetting: View {
             VStack(content: {
             if (viewRouter.currentPage == "Small"){
                 VStack(content: {
-                    
-                    
-                
-                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: exampleLastLimitsEntry.entry.settings, family: .systemSmall)
+                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: settings, family: .systemSmall)
                         
                         .frame(width: 155, height: 155, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
@@ -179,19 +177,51 @@ struct WidgetSetting: View {
             }
             
             })
-//            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 360, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: 379, alignment: .top)
             .padding(.bottom)
             
             Text("Выберите").foregroundColor(Color.white) + Text(viewRouter.currentPage == "Small" ? " 1 " : " 2 ").foregroundColor(Color(red: 1.0, green: 0.26666666666666666, blue: 0.6470588235294118)) + Text((viewRouter.currentPage == "Small" ? "опцию" : "опции") + " (сейчас выбрана по умолчанию):").foregroundColor(Color.white)
            
             Spacer()
             
-            CheckboxField(id: "Test",
-                          label: "kek",
-                          size: 14,
-                          color: Color.white,
-                          textSize: 14,
-                          callback: test)
+            VStack(){
+            CheckboxField(
+                id: "ad",
+                label: "Остаток по пакетам",
+                size: 20,
+                textSize: 14,
+                callback: test,
+                isMarked: settings.smallType == "ad"
+            )
+                CheckboxField(
+                    id: Gender.male.rawValue,
+                    label: "Информация о подарках",
+                    size: 20,
+                    textSize: 14,
+                    callback: test
+                )
+                
+                CheckboxField(
+                    id: "offer",
+                    label: "Личные предложения",
+                    size: 20,
+                    textSize: 14,
+                    callback: test,
+                    isMarked: settings.smallType == "offer"
+                )
+                
+                CheckboxField(
+                    id: "quick",
+                    label: "Быстрые действия",
+                    size: 20,
+                    textSize: 14,
+                    callback: test,
+                    isMarked: settings.smallType == "quick"
+                )
+            }
+            .padding()
+                
+                    
+         
             
             Button(action: {
                 WidgetCenter.shared.reloadAllTimelines()
@@ -220,7 +250,10 @@ struct WidgetSetting: View {
     
     func test (id: String, isMarked: Bool)
     {
-        
+        if(viewRouter.currentPage == "Small")
+        {
+            self.settings = WidgetSettings(smallType: id, mediumLeftType: settings.mediumLeftType, mediumRightType: settings.mediumRightType)
+        }
     }
 }
 
