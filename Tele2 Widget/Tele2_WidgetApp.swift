@@ -15,14 +15,22 @@ extension View {
 
 @main
 struct Tele2_WidgetApp: App {
+    @State var isOffer: Bool = false;
     var body: some Scene {
         WindowGroup {
+            if (isOffer) {
+                OffersPage()
+                    .onOpenURL(perform: { url in
+                        isOffer = url == URL(string: "realityshift:///adamas")!
+                    })
+            } else {
             ContentView()
                 .statusBar(hidden: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
                 .preferredColorScheme(.dark)
                 .onOpenURL(perform: { url in
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                    isOffer = url == URL(string: "realityshift:///adamas")!
                 })
+            }
         }
         
     }

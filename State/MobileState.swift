@@ -84,6 +84,7 @@ struct MobileState: View {
         .padding(5.0)
 
         .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: 150, alignment: .center)
+        .widgetURL(URL(string: "realityshift///ad")!)
         
         
         

@@ -51,9 +51,7 @@ struct ShopAd: View {
                 }
                 .padding(.bottom)
                 
-                Button(action: {
-                    print("Delete tapped!")
-                }) {
+                Link(destination: URL(string: "realityshift:///adamas")!){
                     VStack(alignment: .center){
                         Text("Активировать")
                             .font(Font.custom("SF Ui Display", size: 12))
