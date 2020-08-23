@@ -17,7 +17,7 @@ extension View {
 struct Tele2_WidgetApp: App {
     var body: some Scene {
         WindowGroup {
-            OffersPage()
+            ContentView()
                 .statusBar(hidden: /*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
                 .preferredColorScheme(.dark)
                 .onOpenURL(perform: { url in

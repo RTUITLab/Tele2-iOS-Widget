@@ -65,6 +65,7 @@
 		E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDD124F02D6C005C810D /* State.intentdefinition */; };
 		E6AACDD624F02D77005C810D /* State.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDD124F02D6C005C810D /* State.intentdefinition */; };
 		E6AACDD924F02D77005C810D /* StateExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E6AACDC824F02D6C005C810D /* StateExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E6BB0E1324F1EE2C00366FC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDB724F02CA7005C810D /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +400,7 @@
 			files = (
 				E630CDD124F097CF00A815EF /* ShopAd.swift in Sources */,
 				E606771A24F0A37400A62F96 /* MobileState.swift in Sources */,
+				E6BB0E1324F1EE2C00366FC0 /* ContentView.swift in Sources */,
 				3ABC80DF24F11FBE00494FBB /* ProgressBarHorizontal.swift in Sources */,
 				E6AACDD524F02D77005C810D /* State.intentdefinition in Sources */,
 				3A94EB8324F16AC9008DB9AF /* MenuWithButtons.swift in Sources */,
