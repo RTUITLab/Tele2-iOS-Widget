@@ -62,8 +62,17 @@ struct WidgetSetting: View {
     
     @ObservedObject var viewRouter: ViewRouter
     @State var settings: WidgetSettings = WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "offer")
-    
-    
+    @State private var selectorIndex = 0
+       @State private var numbers = ["Маленький","Средний","Большой"]
+    init(viewRouter: ViewRouter)
+    {
+        self.viewRouter = viewRouter
+        UISegmentedControl.appearance().selectedSegmentTintColor = .white
+
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+//        UISegmentedControl.appearance(for: .)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+    }
     var body: some View {
         ScrollView(content: {
             
@@ -72,70 +81,17 @@ struct WidgetSetting: View {
                 .fontWeight(.bold)
                 .foregroundColor(Color.white)
             
-            HStack(content: {
-                Button(action: {
-                    self.viewRouter.currentPage = "Small"
-                }) {
-                    VStack(alignment: .center){
-                        Text("Маленький")
-                            .font(Font.custom("SF Ui Display", size: 15))
-                            .bold()
-                            .font(.footnote)
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 100,height:20)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.white)
-                    
-                    
-                    .cornerRadius(25)
-                }
-                Button(action: {
-                    self.viewRouter.currentPage = "Medium"
-                }) {
-                    VStack(alignment: .center){
-                        Text("Средний")
-                            .font(Font.custom("SF Ui Display", size: 15))
-                            .bold()
-                            .font(.footnote)
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 100,height:20)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.white)
-                    
-                    
-                    .cornerRadius(25)
-                }
-                Button(action: {
-                    self.viewRouter.currentPage = "Large"
-                }) {
-                    VStack(alignment: .center){
-                        Text("Большой")
-                            .font(Font.custom("SF Ui Display", size: 15))
-                            .bold()
-                            .font(.footnote)
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 100,height:20)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.white)
-                    
-                    
-                    .cornerRadius(25)
-                }
-            })
-            .padding(.top)
-            .padding(.bottom, 30.0)
+            Picker("Numbers", selection: $selectorIndex) {
+                            ForEach(0 ..< numbers.count) { index in
+                                Text(self.numbers[index]).tag(index)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+            .padding(.bottom, 30)
+//            .preferredColorScheme(.light)
             
             VStack(content: {
-                if (viewRouter.currentPage == "Small"){
+                if (selectorIndex == 0){
                     VStack(content: {
                         WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: settings, family: .systemSmall, giftIndicatorType: "offer")
                             
@@ -147,7 +103,7 @@ struct WidgetSetting: View {
                     .frame(width: 169, height: 169, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .overlay(RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.white, lineWidth: 5.0))
-                } else if (viewRouter.currentPage == "Large")
+                } else if (selectorIndex == 2)
                 {
                     VStack(content: {
                         
@@ -161,7 +117,7 @@ struct WidgetSetting: View {
                     .frame(width: 360, height: 379, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.black)
                     
-                } else if (viewRouter.currentPage == "Medium")
+                } else if (selectorIndex == 1)
                 {
                     
                     HStack(content: {
@@ -181,7 +137,7 @@ struct WidgetSetting: View {
             
             Spacer()
             
-            if(viewRouter.currentPage == "Medium")
+            if(selectorIndex == 1)
             {
                 HStack(){
                     VStack()
@@ -195,11 +151,12 @@ struct WidgetSetting: View {
                             isMarked: isMarked(id: "ad")
                         )
                         CheckboxField(
-                            id: Gender.male.rawValue,
+                            id: "123",
                             label: "",
                             size: 25,
                             textSize: 14,
-                            callback: setSettingsLeft
+                            callback: setSettingsLeft,
+                            isMarked: isMarked(id: "123")
                         )
                         
                         CheckboxField(
@@ -248,11 +205,12 @@ struct WidgetSetting: View {
                             isMarked: isMarked(id: "ad", side: "right")
                         )
                         CheckboxField(
-                            id: Gender.male.rawValue,
+                            id: "123",
                             label: "",
                             size: 25,
                             textSize: 14,
-                            callback: setSettingsRight
+                            callback: setSettingsRight,
+                            isMarked: isMarked(id: "123", side: "right")
                         )
                         
                         CheckboxField(
@@ -288,11 +246,12 @@ struct WidgetSetting: View {
                         isMarked: isMarked(id: "ad")
                     )
                     CheckboxField(
-                        id: Gender.male.rawValue,
+                        id: "123",
                         label: "Информация о подарках",
                         size: 20,
                         textSize: 14,
-                        callback: small
+                        callback: small,
+                        isMarked: isMarked(id: "123")
                     )
                     
                     CheckboxField(
@@ -372,10 +331,10 @@ struct WidgetSetting: View {
         }, settings: self.settings)
     }
     func isMarked(id: String, side: String = "left") -> Bool {
-        if(viewRouter.currentPage == "Small")
+        if(selectorIndex == 0)
         {
             return id == settings.smallType
-        } else if(viewRouter.currentPage == "Medium") {
+        } else if(selectorIndex == 1) {
             if (side == "left") {
                 return id == settings.mediumLeftType
             }
@@ -390,6 +349,7 @@ struct WidgetSetting: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
             .previewDevice("iPhone 11 Pro Max")
     }
 }
