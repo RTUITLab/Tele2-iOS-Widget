@@ -63,7 +63,7 @@ struct WidgetSetting: View {
     @ObservedObject var viewRouter: ViewRouter
     
     var body: some View {
-        VStack(content: {
+        ScrollView(content: {
             
             Text("Размер виджета")
                 .font(.title)
@@ -179,14 +179,18 @@ struct WidgetSetting: View {
             }
             
             })
+//            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 360, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: 379, alignment: .top)
             .padding(.bottom)
+            
+            Text("Выберите").foregroundColor(Color.white) + Text(viewRouter.currentPage == "Small" ? " 1 " : " 2 ").foregroundColor(Color(red: 1.0, green: 0.26666666666666666, blue: 0.6470588235294118)) + Text((viewRouter.currentPage == "Small" ? "опцию" : "опции") + " (сейчас выбрана по умолчанию):").foregroundColor(Color.white)
+           
             Spacer()
             
             Button(action: {
                 WidgetCenter.shared.reloadAllTimelines()
             }) {
                 VStack(alignment: .center){
-                    Text("Force reload")
+                    Text("Обновить")
                         .font(Font.custom("SF Ui Display", size: 15))
                         .bold()
                         .font(.footnote)
