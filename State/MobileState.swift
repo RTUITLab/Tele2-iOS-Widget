@@ -11,53 +11,40 @@ import SwiftUI
 struct MobileState: View {
     var family : WidgetFamily
     var entry: Limits
-    
+    var giftIndicatorType: String;
     var body: some View {
-        VStack(alignment: .center, spacing: 4) {
-            
-            HStack(content: {
-                VStack(content: {
-                    Text(self.entry.phone)
-                        .font(Font.custom("SF Ui Display", size: 10))
-                        .foregroundColor(.white)
-                        .padding(.trailing, 32.0)
-                        .allowsTightening(true)
-                        
-                    //                        .resizable()
-                    //                        .frame(width: 53, height: 20)
-                })
-                //                .frame(width: 50, height: 20, alignment: .bottom)
-               
-             
-            })
-            .padding(.bottom, 10.0)
-            
-            .aspectRatio(contentMode: .fill)
-            
-            
-            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                HStack{
-                Text("Баланс: ")
-                    .font(Font.custom("SF Ui Display", size: 11))
-                    .foregroundColor(.gray)
-                    .padding([.bottom, .trailing])
-                    Text("\(self.entry.balance) ₽")
-                    .font(Font.custom("SF Ui Display", size: 11))
-                    .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.bottom)
-                        .padding(.trailing, 7.0)
-                }
-                .padding(.bottom, -9.0)
-                Text("До обновления 14 дней")
-                    .font(Font.custom("SF Ui Display", size: 11))
-                    .foregroundColor(.gray)
-                    .padding(.bottom, -3.0)
-            
-            })
+        VStack(alignment: .leading, spacing: 4) {
+            Spacer()
+
+            HStack {
                 
-            .padding(.bottom, 5.0)
             
+            Text(self.entry.phone)
+                .font(Font.custom("SF Ui Display", size: 12))
+                .foregroundColor(.white)
+                .allowsTightening(true)
+                .aspectRatio(contentMode: .fill)
+                GiftIndicator(type: giftIndicatorType)
+            }
+            
+            Spacer()
+            
+            HStack{
+                Text("Баланс: ")
+                    .font(Font.custom("SF Ui Display", size: 14))
+                    .foregroundColor(.gray)
+                   Spacer()
+                Text("\(self.entry.balance) ₽")
+                    .font(Font.custom("SF Ui Display", size: 16))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    
+            }
+            
+                Text("До обновления 14 дней")
+                    .font(Font.custom("SF Ui Display", size: 12))
+                    .foregroundColor(.gray)
+                    .padding(.vertical, 5.0)
             
             HStack(content: {
                 VStack(spacing: 5, content: {
@@ -90,11 +77,14 @@ struct MobileState: View {
             })
             .layoutPriority(1)
             .scaledToFill()
-            
+            Spacer()
+
             
         }
-        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: .infinity, alignment: .center)
-        .padding()
+        .padding(5.0)
+
+        .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: 150, alignment: .center)
+        
         
         
     }
@@ -119,23 +109,14 @@ struct MobileState: View {
 struct MobileState_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MobileState( family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits)
+            MobileState( family: .systemSmall, entry: Limits(phone: "+7 (800) 555-35-35", balance: "145.20", minutes: Limit(total: 100,left: 50), data: Limit(total: 100, left: 50), sms: Limit(total: 100, left: 50)), giftIndicatorType: "offer")
+                .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraLarge)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 
-                .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
+                
             
-            HStack(alignment: .center){
-                MobileState(family: .systemMedium, entry: exampleLastLimitsEntry.entry.limits)
-                ShopAd()
-            }
-            
-            .background(Color(red: 0.10980392156862745, green: 0.10980392156862745, blue: 0.11764705882352941))
-            .environment(\.sizeCategory, .extraLarge)
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-            .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
-            .previewDisplayName("Medium")
         }
     }
 }

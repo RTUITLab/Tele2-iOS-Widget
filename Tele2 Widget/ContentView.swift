@@ -51,7 +51,7 @@ struct WidgetSetting: View {
             VStack(content: {
                 
                 
-                MobileState(family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits)
+                MobileState(family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits, giftIndicatorType: "none")
                     
                     .frame(width: 149, height: 149, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
