@@ -32,7 +32,3 @@
 ![](doc/Widget_settings_medium.png)
 ![](doc/Widget_settings_small.png)
 
-### Варианты кастомизации виджета пользователем
-![](doc/Widget_1.png)
-![](doc/Widget_2_activated.png)
-
