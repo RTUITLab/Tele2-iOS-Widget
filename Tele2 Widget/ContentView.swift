@@ -186,6 +186,13 @@ struct WidgetSetting: View {
            
             Spacer()
             
+            CheckboxField(id: "Test",
+                          label: "kek",
+                          size: 14,
+                          color: Color.white,
+                          textSize: 14,
+                          callback: test)
+            
             Button(action: {
                 WidgetCenter.shared.reloadAllTimelines()
             }) {
@@ -208,6 +215,12 @@ struct WidgetSetting: View {
             
         })
         .padding(.bottom, 20.0)
+    }
+    
+    
+    func test (id: String, isMarked: Bool)
+    {
+        
     }
 }
 
