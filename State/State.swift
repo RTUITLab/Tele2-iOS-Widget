@@ -73,8 +73,8 @@ struct CommitCheckerWidgetWidget: Widget {
         StaticConfiguration(kind: kind, provider: LimitsTimeLine()) { entry in
             CommitCheckerWidgetView(entry: entry)
         }
-        .configurationDisplayName("Lasted Commit")
-        .description("Widget test")
+        .configurationDisplayName("Виджеты Tele2")
+        .description("Повысьте свою продуктивность!")
         
     }
 }

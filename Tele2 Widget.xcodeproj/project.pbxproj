@@ -70,6 +70,7 @@
 		E6AACDD624F02D77005C810D /* State.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDD124F02D6C005C810D /* State.intentdefinition */; };
 		E6AACDD924F02D77005C810D /* StateExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E6AACDC824F02D6C005C810D /* StateExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E6BB0E1324F1EE2C00366FC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AACDB724F02CA7005C810D /* ContentView.swift */; };
+		E6E6D63224F27CC5005774BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6AACDB924F02CAB005C810D /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,6 +366,7 @@
 				3AB8E04F24F1FC5E004E9006 /* Tele2TextSans-Bold-shortWeb_0.ttf in Resources */,
 				3FD8D51A24F1CA8100F80136 /* SF-UI-Display-Regular.otf in Resources */,
 				E695982B24F1320700C88FEF /* Assets.xcassets in Resources */,
+				E6E6D63224F27CC5005774BB /* Assets.xcassets in Resources */,
 				3FE7B57024F1E53E0009ABC1 /* Tele2DisplaySerif-Bold-shortWeb_0.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,7 +566,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Tele2 Widget/Tele2 Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Tele2 Widget/Preview Content\"";
-				DEVELOPMENT_TEAM = 8V7872X755;
+				DEVELOPMENT_TEAM = ZBVHAA67XK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Tele2 Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -575,7 +577,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.RealityShify.Tele2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -588,7 +590,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Tele2 Widget/Tele2 Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Tele2 Widget/Preview Content\"";
-				DEVELOPMENT_TEAM = 8V7872X755;
+				DEVELOPMENT_TEAM = ZBVHAA67XK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Tele2 Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -599,7 +601,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.RealityShify.Tele2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -609,7 +611,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8V7872X755;
+				DEVELOPMENT_TEAM = ZBVHAA67XK;
 				INFOPLIST_FILE = State/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -620,7 +622,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -630,7 +632,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8V7872X755;
+				DEVELOPMENT_TEAM = ZBVHAA67XK;
 				INFOPLIST_FILE = State/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -641,7 +643,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
