@@ -77,6 +77,7 @@ struct WidgetSetting: View {
                         }
                         .pickerStyle(SegmentedPickerStyle())
             .padding(.bottom, 30)
+            .frame(width: 400-10-10-10)
 //            .preferredColorScheme(.light)
             
             VStack(content: {
@@ -167,21 +168,22 @@ struct WidgetSetting: View {
                         )
                     }
                     
-                    VStack()
+                    VStack(spacing: 10)
                     {
                         Text("Остаток по пакетам")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 25))
+                            .font(Font.system(size: 20))
                         Text("Информация о подарках")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 25))
+                            .font(Font.system(size: 20))
                         Text("Личные предложения")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 25))
+                            .font(Font.system(size: 20))
                         Text("Быстрые действия")
                             .foregroundColor(Color.white)
-                            .font(Font.system(size: 25))
+                            .font(Font.system(size: 20))
                     }
+                    .padding(.horizontal, 40)
                     
                     VStack()
                     {
