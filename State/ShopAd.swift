@@ -51,7 +51,7 @@ struct ShopAd: View {
                 }
                 .padding(.bottom)
                 
-                Link(destination: URL(string: "realityshift:///adamas")!){
+                Link(destination: adamasURL){
                     VStack(alignment: .center){
                         Text("Активировать")
                             .font(Font.custom("SF Ui Display", size: 12))
