@@ -48,8 +48,7 @@ struct CommitCheckerWidgetView: View {
         VStack() {
             switch family{
             case .systemSmall:
-                MobileState(family: family, entry: self.entry.entry.limits)
-                
+                WraperSmall(limits: entry.entry.limits, widgetSettings: entry.entry.settings, family: family)
             case .systemMedium:
                 HStack(content: {
                     MobileState(family: family, entry: self.entry.entry.limits)
@@ -101,7 +100,13 @@ struct State_PreviewsLarge: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
                 .previewDisplayName("Medium and adamas")
             
-            CommitCheckerWidgetView(entry: exampleLastLimitsEntry)
+            CommitCheckerWidgetView(entry: LastLimitsEntry(date: Date(), entry: ModelEntry(limits: exampleLastLimitsEntry.entry.limits, settings: WidgetSettings(smallType: "ad", mediumLeftType: "ad", mediumRightType: "quick"))))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                .environment(\.sizeCategory, .extraLarge)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
+                .previewDisplayName("Small")
+            
+            CommitCheckerWidgetView(entry: LastLimitsEntry(date: Date(), entry: ModelEntry(limits: exampleLastLimitsEntry.entry.limits, settings: WidgetSettings(smallType: "quick", mediumLeftType: "ad", mediumRightType: "quick"))))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
                 .environment(\.sizeCategory, .extraLarge)
                 .previewDevice(PreviewDevice(rawValue: "iPhone 11 Pro Max"))
