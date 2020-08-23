@@ -167,8 +167,7 @@ struct WidgetSetting: View {
             {
                 
                 HStack(content: {
-                    MobileState(family: .systemSmall, entry: exampleLastLimitsEntry.entry.limits)
-                        .scaledToFit()
+                    WraperSmall(limits: exampleLastLimitsEntry.entry.limits, widgetSettings: exampleLastLimitsEntry.entry.settings, family: .systemSmall)
                     ShopAd()
                         .layoutPriority(1)
                 })

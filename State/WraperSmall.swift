@@ -15,16 +15,10 @@ struct WraperSmall: View {
     var body: some View {
         ZStack {
             
-            Circle()
-                .fill(Color(red: 1.0, green: 0.34901960784313724, blue: 0.6392156862745098))
-                
-                .frame(width:9, height:9)
-                
-                .padding([.top, .leading])
-                .offset(x: 50, y: -70)
+            
             switch widgetSettings.smallType{
             case "ad":
-                MobileState(family: family, entry: self.limits)
+                MobileState(family: family, entry: self.limits, giftIndicatorType: "weekly")
                 
             case "quick":
                 MenuWithButtons()

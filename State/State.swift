@@ -51,7 +51,7 @@ struct CommitCheckerWidgetView: View {
                 WraperSmall(limits: entry.entry.limits, widgetSettings: entry.entry.settings, family: family)
             case .systemMedium:
                 HStack(content: {
-                    MobileState(family: family, entry: self.entry.entry.limits)
+                    MobileState(family: family, entry: self.entry.entry.limits, giftIndicatorType: "weekly")
                         .scaledToFit()
                     ShopAd()
                         .layoutPriority(1)
