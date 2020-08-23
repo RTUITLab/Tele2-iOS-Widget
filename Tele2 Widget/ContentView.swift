@@ -81,13 +81,13 @@ struct WidgetSetting: View {
                             .font(Font.custom("SF Ui Display", size: 15))
                             .bold()
                             .font(.footnote)
-                            .foregroundColor(.black)
+                            .foregroundColor(viewRouter.currentPage == "Small" ? .white : .black)
                             .multilineTextAlignment(.center)
                     }
                     .frame(width: 100,height:20)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.white)
+                    .background(viewRouter.currentPage == "Small" ? Color.pink : Color.white)
                     
                     
                     .cornerRadius(25)
@@ -100,13 +100,13 @@ struct WidgetSetting: View {
                             .font(Font.custom("SF Ui Display", size: 15))
                             .bold()
                             .font(.footnote)
-                            .foregroundColor(.black)
+                            .foregroundColor(viewRouter.currentPage == "Medium" ? .white : .black)
                             .multilineTextAlignment(.center)
                     }
                     .frame(width: 100,height:20)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.white)
+                    .background(viewRouter.currentPage == "Medium" ? Color.pink : Color.white)
                     
                     
                     .cornerRadius(25)
@@ -119,13 +119,13 @@ struct WidgetSetting: View {
                             .font(Font.custom("SF Ui Display", size: 15))
                             .bold()
                             .font(.footnote)
-                            .foregroundColor(.black)
+                            .foregroundColor(viewRouter.currentPage == "Large" ? .white : .black)
                             .multilineTextAlignment(.center)
                     }
                     .frame(width: 100,height:20)
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color.white)
+                    .background(viewRouter.currentPage == "Large" ? Color.pink : Color.white)
                     
                     
                     .cornerRadius(25)
