@@ -17,7 +17,7 @@ struct MobileState: View {
             
             HStack(content: {
                 VStack(content: {
-                    Text(self.entry.limits.phone)
+                    Text(self.entry.phone)
                         .font(Font.custom("SF Ui Display", size: 10))
                         .foregroundColor(.white)
                         .padding(.trailing, 32.0)
@@ -40,14 +40,13 @@ struct MobileState: View {
                 Text("Баланс: ")
                     .font(Font.custom("SF Ui Display", size: 11))
                     .foregroundColor(.gray)
-                    .multilineTextAlignment(.leading)
                     .padding([.bottom, .trailing])
-                    
-                    Text("\(self.entry.limits.balance) ₽")
+                    Text("\(self.entry.balance) ₽")
                     .font(Font.custom("SF Ui Display", size: 11))
                     .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding([.leading, .bottom])
+                        .padding(.bottom)
+                        .padding(.trailing, 7.0)
                 }
                 .padding(.bottom, -9.0)
                 Text("До обновления 14 дней")
