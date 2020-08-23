@@ -25,7 +25,7 @@ struct WraperSmall: View {
             case "offer":
                 ShopAd(giftIndicatorType: giftIndicatorType)
             default:
-                Text("incorrect state setting")
+                Text("in development")
                     .foregroundColor(Color.white)
             }
         }
